@@ -6,3 +6,4 @@ artifacts/
 .vscode/
 .dotnet/
 *.binlog
+/CollinCountyCovidDashboard/Client/wwwroot/debug.log

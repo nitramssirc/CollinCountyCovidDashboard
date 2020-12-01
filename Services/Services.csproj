@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion.xlsx" />
+    <None Remove="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.xlsx" />
+    <None Remove="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.xlsx" />
+    <None Remove="StateOfTexas\Data\TexasCOVID19NewConfirmedCasesbyCounty.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion.xlsx" />
+    <EmbeddedResource Include="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.xlsx" />
+    <EmbeddedResource Include="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.xlsx" />
+    <EmbeddedResource Include="StateOfTexas\Data\TexasCOVID19NewConfirmedCasesbyCounty.xlsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.xlsx" />
+  </ItemGroup>
+
+</Project>

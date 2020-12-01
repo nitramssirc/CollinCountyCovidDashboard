@@ -1,7 +1,22 @@
 ﻿@page "/"
 
-    <div class="content-box">
-        <h1>Hello, world!</h1>
-
-        Welcome to your new app.
+@if (IsLoading)
+{
+    <div class="loading">Loading...</div>
+}
+else if (Error != null)
+{
+    <div class="error">@Error</div>
+}
+else
+{
+    <div class="index-grid-container">
+        <div class="content-box" style="grid-area:New-Cases;">
+            <div>New Cases: @Today.Cases</div>
+            <div>New Cases Per 100K: @Today.CasesPer100K</div>
+        </div>
+        <div class="content-box" style="grid-area:Tests;">Tests</div>
+        <div class="content-box" style="grid-area:Hospitalizations;">Hospitalizations</div>
+        <div class="content-box" style="grid-area:Deaths;">Deaths</div>
     </div>
+}
