@@ -10,5 +10,11 @@ namespace Services.StateOfTexas.Client
         Task<ServiceResponse<NewCaseRecord>> GetLatestNewCaseCount();
 
         Task<ServiceResponse<int>> GetTotalCases();
+
+        Task<ServiceResponse<DailyTestData>> GetLatestPositiveTestCount();
+
+        Task<ServiceResponse<DailyHospitalizationRecord>> GetLastestHospitalizationCount();
+
+        Task<ServiceResponse<DailyDeathRecord>> GetLatestDeathCount();
     }
 }

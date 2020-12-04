@@ -13,10 +13,23 @@ else
     <div class="index-grid-container">
         <div class="content-box" style="grid-area:New-Cases;">
             <div>New Cases: @Today.Cases</div>
-            <div>New Cases Per 100K: @Today.CasesPer100K</div>
+            <div>New Cases Per 100K: @Today.CasesPer100K.ToString("0.##")</div>
+            <div>Last Update: @Today.CasesUpdateDate</div>
         </div>
-        <div class="content-box" style="grid-area:Tests;">Tests</div>
-        <div class="content-box" style="grid-area:Hospitalizations;">Hospitalizations</div>
-        <div class="content-box" style="grid-area:Deaths;">Deaths</div>
+        <div class="content-box" style="grid-area:Tests;">
+            <div>Tests: @Today.Tests</div>
+            <div>Positivity Rate: @Today.PositivityRate.ToString("P")</div>
+            <div>Last Update: @Today.TestsUpdateDate</div>
+        </div>
+        <div class="content-box" style="grid-area:Hospitalizations;">
+            <div>New Hospitalizations: @Today.Hospitalizations</div>
+            <div>Total Hospitalizations: @Today.TotalCurrentlyHospitalized</div>
+            <div>Last Update: @Today.HospitalizationsUpdateDate</div>
+        </div>
+        <div class="content-box" style="grid-area:Deaths;">
+            <div>New Deaths: @Today.Deaths</div>
+            <div>Total Deaths: @Today.TotalDeaths</div>
+            <div>Last Update: @Today.DeathsUpdateDate</div>
+        </div>
     </div>
 }

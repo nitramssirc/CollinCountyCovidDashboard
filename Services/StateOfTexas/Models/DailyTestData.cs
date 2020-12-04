@@ -12,11 +12,15 @@ namespace Services.StateOfTexas.Models
 
         public int Tests { get; private set; }
 
+        public decimal PositivityRate { get; private set; }
+
         public DailyTestData(DateTime date,
-                             int tests)
+                             int tests,
+                             decimal positivityRate)
         {
             Date = date;
             Tests = tests;
+            PositivityRate = positivityRate;
         }
     }
 }

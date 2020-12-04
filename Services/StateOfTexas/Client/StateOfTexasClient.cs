@@ -64,6 +64,75 @@ namespace Services.StateOfTexas.Client
             );
         }
 
+        public async Task<ServiceResponse<DailyTestData>> GetLatestPositiveTestCount()
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    var testDataSet = LoadExcelDataAsDataSet("CumulativeTestsOverTimeByCounty.xlsx");
+                    var testData = GetDailyTestCaseCount(testDataSet.Tables[0]);
+                    var latestDate = testData.Max(nc => nc.Key);
+                    var latestTestCases = testData[latestDate];
+
+                    var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
+                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]);
+                    var casesOnLatestTestDate = newCases[latestDate];
+                    var positivityRate = (decimal)casesOnLatestTestDate / latestTestCases;
+                    var latestTestDataRecord = new DailyTestData(latestDate, latestTestCases, positivityRate);
+                    return new ServiceResponse<DailyTestData>(latestTestDataRecord);
+                }
+                catch (Exception ex)
+                {
+                    return new ServiceResponse<DailyTestData>(
+                        "An error occurred loading the test data from the State of Texas", ex);
+                }
+            }
+            );
+        }
+
+        public async Task<ServiceResponse<DailyHospitalizationRecord>> GetLastestHospitalizationCount()
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    var hospitalizationsDataSet = LoadExcelDataAsDataSet("CombinedHospitalDataoverTimebyTSARegion.xlsx");
+                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsDataSet.Tables[0]);
+                    var latestRecord = hospitalizationRecords.Last();
+
+                    return new ServiceResponse<DailyHospitalizationRecord>(latestRecord);
+                }
+                catch (Exception ex)
+                {
+                    return new ServiceResponse<DailyHospitalizationRecord>(
+                        "An error occurred loading the hospital data from the State of Texas", ex);
+                }
+            }
+            );
+        }
+
+        public async Task<ServiceResponse<DailyDeathRecord>> GetLatestDeathCount()
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    var deathDataSet = LoadExcelDataAsDataSet("TexasCOVID19FatalityCountDatabyCounty.xlsx");
+                    var deathRecords = GetDeathRecords(deathDataSet.Tables[0]);
+                    var latestRecord = deathRecords.Last();
+
+                    return new ServiceResponse<DailyDeathRecord>(latestRecord);
+                }
+                catch (Exception ex)
+                {
+                    return new ServiceResponse<DailyDeathRecord>(
+                        "An error occurred loading the fatality data from the State of Texas", ex);
+                }
+            }
+            );
+        }
+
         #endregion
 
         #region Private Method
@@ -80,7 +149,6 @@ namespace Services.StateOfTexas.Client
 
             var assembly = Assembly.GetExecutingAssembly();
             var resourceNames = assembly.GetManifestResourceNames();
-            Console.WriteLine(string.Join(',', resourceNames));
             return assembly.GetManifestResourceStream($"Services.StateOfTexas.Data.{filename}");
         }
 
@@ -99,9 +167,86 @@ namespace Services.StateOfTexas.Client
             return returnDictionary;
         }
 
+        private Dictionary<DateTime, int> GetDailyTestCaseCount(DataTable testData)
+        {
+            var columnCount = testData.Columns.Count;
+            var returnDictionary = new Dictionary<DateTime, int>();
+            var prevTestCount = 0;
+            for (int colIndex = 1; colIndex < columnCount; colIndex++)
+            {
+                var date = ParseTestDataDate(testData.Rows[0][colIndex].ToString());
+                var testCount = ParseTestCount(testData.Rows[1][colIndex].ToString());
+                var dailyTestCount = testCount - prevTestCount;
+                prevTestCount = testCount;
+
+                returnDictionary.Add(date, dailyTestCount);
+            }
+
+            return returnDictionary;
+        }
+
+        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTable hospitalizationData)
+        {
+            var columnCount = hospitalizationData.Columns.Count;
+            var returnList = new List<DailyHospitalizationRecord>();
+            var prevHospitalizationCount = 0;
+            for (int colIndex = 2; colIndex < columnCount; colIndex++)
+            {
+                var date = ParseHospitalDataDate(hospitalizationData.Rows[0][colIndex].ToString());
+                var hospitalizationCount = ParseHospitalizationCount(hospitalizationData.Rows[1][colIndex].ToString());
+                var dailyHospitalizationCount = hospitalizationCount - prevHospitalizationCount;
+                prevHospitalizationCount = hospitalizationCount;
+
+                returnList.Add(new DailyHospitalizationRecord(date, dailyHospitalizationCount, hospitalizationCount));
+            }
+
+            return returnList;
+        }
+
+        private List<DailyDeathRecord> GetDeathRecords(DataTable deathData)
+        {
+            var columnCount = deathData.Columns.Count;
+            var returnList = new List<DailyDeathRecord>();
+            var prevDeathCount = 0;
+            for (int colIndex = 2; colIndex < columnCount; colIndex++)
+            {
+                var date = ParseDeathDataDate(deathData.Rows[0][colIndex].ToString());
+                var deathCount = ParseDeathCount(deathData.Rows[1][colIndex].ToString());
+                var dailyDeathCount = deathCount - prevDeathCount;
+                prevDeathCount = deathCount;
+
+                returnList.Add(new DailyDeathRecord(date, dailyDeathCount, deathCount));
+            }
+
+            return returnList;
+        }
+
         private DateTime ParseNewCaseDate(string dateString)
         {
             dateString = dateString.Replace("New Cases ", string.Empty);
+
+            var splitDate = dateString.Split("-");
+            var hasYear = splitDate.Length == 3;
+            var year = hasYear ? int.Parse(splitDate[0]) : 2020;
+            var month = int.Parse(splitDate[hasYear ? 1 : 0]);
+            var day = int.Parse(splitDate[hasYear ? 2 : 1]);
+
+            return new DateTime(year, month, day);
+        }
+
+        private DateTime ParseTestDataDate(string dateString)
+        {
+            return DateTime.Parse(dateString);
+        }
+
+        private DateTime ParseHospitalDataDate(string dateString)
+        {
+            return DateTime.Parse(dateString);
+        }
+
+        private DateTime ParseDeathDataDate(string dateString)
+        {
+            dateString = dateString.Replace("Fatalities ", string.Empty);
 
             var splitDate = dateString.Split("-");
             var hasYear = splitDate.Length == 3;
@@ -117,36 +262,21 @@ namespace Services.StateOfTexas.Client
             return int.Parse(newCaseCountString);
         }
 
-        private List<DateTime> GetDates(DataRow dataRow, int columnCount)
+        private int ParseTestCount(string testCountString)
         {
-            var dateList = new List<DateTime>();
-            for (int i = 1; i < columnCount; i++)
-            {
-                var dateString = dataRow[i].ToString();
-                dateList.Add(DateTime.Parse(dateString));
-            }
-            return dateList;
+            var filteredString= testCountString.Replace(",", string.Empty);
+            return int.Parse(filteredString);
         }
 
-        private List<int> GetTestingTotals(DataRow dataRow, int columnCount)
+        private int ParseHospitalizationCount(string hospitalizationCountString)
         {
-            var dataList = new List<int> { 0 };
-            var prevAmt = int.Parse(dataRow[1].ToString());
-            for (int i = 2; i < columnCount; i++)
-            {
-                var amt = int.Parse(dataRow[i].ToString());
-                dataList.Add(amt - prevAmt);
-                prevAmt = amt;
-            }
-            return dataList;
+            return int.Parse(hospitalizationCountString);
         }
 
-        private CumulativeTestsOverTime GenerateCumulativeTestsOverTime(List<DateTime> dates, List<int> testingTotals)
+        private int ParseDeathCount(string deathCountString)
         {
-            var dailyTestData = dates.Select((date, i) => new DailyTestData(date, testingTotals[i]));
-            return new CumulativeTestsOverTime(dailyTestData.ToArray());
+            return int.Parse(deathCountString);
         }
-
 
         #endregion
     }
