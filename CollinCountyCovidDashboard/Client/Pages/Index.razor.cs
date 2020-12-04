@@ -41,5 +41,18 @@ namespace CollinCountyCovidDashboard.Client.Pages
         }
 
         #endregion
+
+        #region Methods
+
+        private string GetValueFontSize(int val)
+        {
+            if (val < 1000) return "10vmax";
+            var digitCount = Math.Floor(Math.Log10(val/1000))+1;
+            var fontSize = 10 - digitCount*3;
+            if (fontSize < 2) return "2vmax";
+            return $"{fontSize}vmax";
+        }
+
+        #endregion
     }
 }
