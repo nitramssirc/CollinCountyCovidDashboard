@@ -1,5 +1,5 @@
 ﻿<div id="NavBar">
-    <div class="Previous"><span class="oi oi-caret-left"></span></div>
-    <div class="Current">Current</div>
-    <div class="Next"><span class="oi oi-caret-right"></span></div>
+    <div class="Previous" @onclick="GoToPreviousPage"><span class="oi oi-caret-left"></span></div>
+    <div class="Current">@CurrentPageName</div>
+    <div class="Next" @onclick="GoToNextPage"><span class="oi oi-caret-right"></span></div>
 </div>

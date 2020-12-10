@@ -17,7 +17,6 @@ namespace Services.StateOfTexas.Client
 {
     public class StateOfTexasClient : IStateOfTexasClient
     {
-        private static readonly HttpClient _httpClient = new HttpClient();
 
         #region Implementation of GetCumulativeTestsOverTimeForCounty
 
