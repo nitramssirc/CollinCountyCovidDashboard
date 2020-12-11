@@ -36,16 +36,19 @@ namespace Application.Queries.GetToday
             var testDataTask = _stateOfTexasClient.GetLatestPositiveTestCount();
             var hospitalDataTask = _stateOfTexasClient.GetLastestHospitalizationCount();
             var deathDataTask = _stateOfTexasClient.GetLatestDeathCount();
-            await Task.WhenAll(newCasesTask, testDataTask, hospitalDataTask, deathDataTask);
+            var hospitalPctTask = _stateOfTexasClient.GetLatestCovidHospitalizationPct();
+            await Task.WhenAll(newCasesTask, testDataTask, hospitalDataTask, deathDataTask, hospitalPctTask);
 
             var newCasesResult = newCasesTask.Result;
             var testDataResult = testDataTask.Result;
             var hospitalDataResult = hospitalDataTask.Result;
             var deathDataResult = deathDataTask.Result;
+            var hospitalPctResult = hospitalPctTask.Result;
             if (!newCasesResult.WasSuccessful) return new QueryResult<Today>(newCasesResult.Error);
             if (!testDataResult.WasSuccessful) return new QueryResult<Today>(testDataResult.Error);
             if (!hospitalDataResult.WasSuccessful) return new QueryResult<Today>(hospitalDataResult.Error);
             if (!deathDataResult.WasSuccessful) return new QueryResult<Today>(deathDataResult.Error);
+            if (!hospitalPctResult.WasSuccessful) return new QueryResult<Today>(hospitalPctResult.Error);
 
             var newCasesDate = newCasesResult.Response.Date;
             var newCasesCount = newCasesResult.Response.NewCases;
@@ -58,6 +61,7 @@ namespace Application.Queries.GetToday
             var hospitalUpdateDate = hospitalDataResult.Response.Date;
             var newHospitalizations = hospitalDataResult.Response.NewHopitalizations;
             var totalHospitalizations = hospitalDataResult.Response.TotalHospitalization;
+            var hospitalizationPct = hospitalPctResult.Response.Pct;
 
             var deathUpdateDate = deathDataResult.Response.Date;
             var newDeaths = deathDataResult.Response.NewDeaths;
@@ -75,7 +79,8 @@ namespace Application.Queries.GetToday
                     hospitalUpdateDate,
                     newDeaths,
                     totalDeaths,
-                    deathUpdateDate
+                    deathUpdateDate,
+                    hospitalizationPct
                 ));
         }
 

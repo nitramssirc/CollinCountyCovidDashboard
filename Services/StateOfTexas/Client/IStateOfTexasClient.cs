@@ -16,5 +16,7 @@ namespace Services.StateOfTexas.Client
         Task<ServiceResponse<DailyHospitalizationRecord>> GetLastestHospitalizationCount();
 
         Task<ServiceResponse<DailyDeathRecord>> GetLatestDeathCount();
+
+        Task<ServiceResponse<DailyCovidHospitalizationPctRecord>> GetLatestCovidHospitalizationPct();
     }
 }

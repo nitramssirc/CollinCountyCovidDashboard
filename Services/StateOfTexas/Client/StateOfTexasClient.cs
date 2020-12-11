@@ -132,6 +132,27 @@ namespace Services.StateOfTexas.Client
             );
         }
 
+        public async Task<ServiceResponse<DailyCovidHospitalizationPctRecord>> GetLatestCovidHospitalizationPct()
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    var dataSet = LoadExcelDataAsDataSet("CombinedHospitalDataoverTimebyTSARegion.xlsx");
+                    var records = GetCovidHopitalizationPctRecords(dataSet.Tables[1]);
+                    var latestRecord = records.Last();
+
+                    return new ServiceResponse<DailyCovidHospitalizationPctRecord>(latestRecord);
+                }
+                catch (Exception ex)
+                {
+                    return new ServiceResponse<DailyCovidHospitalizationPctRecord>(
+                        "An error occurred loading the hospital covid % data from the State of Texas", ex);
+                }
+            }
+            );
+        }
+
         #endregion
 
         #region Private Method
@@ -220,6 +241,21 @@ namespace Services.StateOfTexas.Client
             return returnList;
         }
 
+        private List<DailyCovidHospitalizationPctRecord> GetCovidHopitalizationPctRecords(DataTable dataTable)
+        {
+            var columnCount = dataTable.Columns.Count;
+            var returnList = new List<DailyCovidHospitalizationPctRecord>();
+            for (int colIndex = 2; colIndex < columnCount; colIndex++)
+            {
+                var date = ParseHospitalDataDate(dataTable.Rows[0][colIndex].ToString());
+                var pct = ParseHospitalizationPct(dataTable.Rows[1][colIndex].ToString());
+
+                returnList.Add(new DailyCovidHospitalizationPctRecord(pct, date));
+            }
+
+            return returnList;
+        }
+
         private DateTime ParseNewCaseDate(string dateString)
         {
             dateString = dateString.Replace("New Cases ", string.Empty);
@@ -271,6 +307,12 @@ namespace Services.StateOfTexas.Client
         {
             return int.Parse(hospitalizationCountString);
         }
+
+        private decimal ParseHospitalizationPct(string dataValue)
+        {
+            return decimal.Parse(dataValue.Replace("%", string.Empty));
+        }
+
 
         private int ParseDeathCount(string deathCountString)
         {

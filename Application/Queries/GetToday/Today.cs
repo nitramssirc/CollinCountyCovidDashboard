@@ -22,6 +22,8 @@ namespace Application.Queries.GetToday
 
         public int Hospitalizations { get; private set; }
 
+        public decimal CovidPercentOfHospitalizations { get; private set; }
+
         public int TotalCurrentlyHospitalized { get; private set; }
 
         public DateTime HospitalizationsUpdateDate { get; private set; }
@@ -43,7 +45,8 @@ namespace Application.Queries.GetToday
                      DateTime hospitalizationsUpdateDate,
                      int deaths,
                      int totalDeaths,
-                     DateTime deathsUpdateDate)
+                     DateTime deathsUpdateDate, 
+                     decimal covidPercentOfHospitalizations)
         {
             Cases = cases;
             CasesPer100K = casesPer100K;
@@ -57,6 +60,7 @@ namespace Application.Queries.GetToday
             Deaths = deaths;
             TotalDeaths = totalDeaths;
             DeathsUpdateDate = deathsUpdateDate;
+            CovidPercentOfHospitalizations = covidPercentOfHospitalizations;
         }
 
     }
