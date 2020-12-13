@@ -264,6 +264,8 @@ namespace Services.StateOfTexas.Client
 
         private DateTime ParseHospitalDataDate(string dateString)
         {
+            if (dateString == "39668") return new DateTime(2020, 08, 08);
+            if (dateString == "44059") return new DateTime(2020, 08, 16);
             return DateTime.Parse(dateString);
         }
 
