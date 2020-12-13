@@ -20,8 +20,6 @@ namespace Application.Queries.GetToday
 
         public DateTime TestsUpdateDate { get; private set; }
 
-        public int Hospitalizations { get; private set; }
-
         public decimal CovidPercentOfHospitalizations { get; private set; }
 
         public int TotalCurrentlyHospitalized { get; private set; }
@@ -40,7 +38,6 @@ namespace Application.Queries.GetToday
                      int tests,
                      decimal positivityRate,
                      DateTime testsUpdateDate,
-                     int hospitalizations,
                      int totalCurrentlyHospitalized,
                      DateTime hospitalizationsUpdateDate,
                      int deaths,
@@ -54,7 +51,6 @@ namespace Application.Queries.GetToday
             Tests = tests;
             PositivityRate = positivityRate;
             TestsUpdateDate = testsUpdateDate;
-            Hospitalizations = hospitalizations;
             TotalCurrentlyHospitalized = totalCurrentlyHospitalized;
             HospitalizationsUpdateDate = hospitalizationsUpdateDate;
             Deaths = deaths;

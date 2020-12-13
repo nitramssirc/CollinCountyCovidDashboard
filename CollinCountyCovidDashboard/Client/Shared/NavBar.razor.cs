@@ -12,6 +12,7 @@ namespace CollinCountyCovidDashboard.Client.Shared
     public enum NavPageType
     {
         Latest,
+        SevenDayAvg,
         Sources
     }
 
@@ -51,6 +52,8 @@ namespace CollinCountyCovidDashboard.Client.Shared
             var curPage = CurrentPage;
             switch (curPage)
             {
+                case NavPageType.SevenDayAvg:
+                    return "7 Day Averages";
                 default:
                     return curPage.ToString();
             }

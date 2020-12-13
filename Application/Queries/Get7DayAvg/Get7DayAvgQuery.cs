@@ -11,9 +11,9 @@ using Services.CovidActNow.Models;
 using Services.StateOfTexas.Client;
 using Services.StateOfTexas.Models;
 
-namespace Application.Queries.GetToday
+namespace Application.Queries.Get7DayAvg
 {
-    public class GetTodayQuery : IGetTodayQuery
+    public class Get7DayAvgQuery : IGet7DayAvgQuery
     {
         #region Dependencies
 
@@ -23,7 +23,7 @@ namespace Application.Queries.GetToday
 
         #region Constructor
 
-        public GetTodayQuery(IStateOfTexasClient stateOfTexasClient)
+        public Get7DayAvgQuery(IStateOfTexasClient stateOfTexasClient)
         {
             _stateOfTexasClient = stateOfTexasClient;
         }
@@ -32,12 +32,12 @@ namespace Application.Queries.GetToday
 
         #region Implementation of IGetTodayQuery
 
-        public async Task<QueryResult<Today>> Execute()
+        public async Task<QueryResult<SevenDayAvg>> Execute()
         {
-            var newCasesTask = _stateOfTexasClient.GetLatestNewCaseRecords(1);
-            var testDataTask = _stateOfTexasClient.GetLatestPositiveTestCount(1);
-            var hospitalDataTask = _stateOfTexasClient.GetLastestHospitalizationCount(1);
-            var deathDataTask = _stateOfTexasClient.GetLatestDeathCount(1);
+            var newCasesTask = _stateOfTexasClient.GetLatestNewCaseRecords(7);
+            var testDataTask = _stateOfTexasClient.GetLatestPositiveTestCount(7);
+            var hospitalDataTask = _stateOfTexasClient.GetLastestHospitalizationCount(7);
+            var deathDataTask = _stateOfTexasClient.GetLatestDeathCount(7);
             await Task.WhenAll(newCasesTask, testDataTask, hospitalDataTask, deathDataTask);
 
             var newCasesResult = newCasesTask.Result;
@@ -55,10 +55,10 @@ namespace Application.Queries.GetToday
                 !ProcessDeathData(deathDataResult,
                 out var deathUpdateDate, out var newDeaths, out var totalDeaths, out error))
             {
-                return new QueryResult<Today>(error);
+                return new QueryResult<SevenDayAvg>(error);
             }
 
-            return new QueryResult<Today>(new Today(
+            return new QueryResult<SevenDayAvg>(new SevenDayAvg(
                     newCasesCount,
                     newCasesPer100k,
                     newCasesDate,
@@ -81,7 +81,7 @@ namespace Application.Queries.GetToday
 
         private bool ProcessNewCases(ServiceResponse<NewCaseRecord[]> newCaseRecordResponse,
             out DateTime newCasesDate,
-            out int newCasesCount,
+            out decimal newCasesCount,
             out decimal newCasesPer100k,
             out string error)
         {
@@ -92,9 +92,9 @@ namespace Application.Queries.GetToday
 
             if (!newCaseRecordResponse.WasSuccessful) { error = newCaseRecordResponse.Error; return false; }
 
-            var newCaseRecord = newCaseRecordResponse.Response.First();
-            newCasesDate = newCaseRecord.Date;
-            newCasesCount = newCaseRecord.NewCases;
+            var newCaseRecords = newCaseRecordResponse.Response;
+            newCasesDate = newCaseRecords.First().Date;
+            newCasesCount = (decimal)newCaseRecords.Average(r=>r.NewCases);
             newCasesPer100k = newCasesCount / 10.34730M;
 
             return true;
@@ -102,7 +102,7 @@ namespace Application.Queries.GetToday
 
         private bool ProcessTestData(ServiceResponse<DailyTestData[]> response,
             out DateTime updateDate,
-            out int testCount,
+            out decimal testCount,
             out decimal positivityRate,
             out string error)
         {
@@ -113,37 +113,37 @@ namespace Application.Queries.GetToday
 
             if (!response.WasSuccessful) { error = response.Error; return false; }
 
-            var testDataResult = response.Response.First();
-            updateDate = testDataResult.Date;
-            testCount = testDataResult.Tests;
-            positivityRate = testDataResult.PositivityRate;
+            var testDataResults = response.Response;
+            updateDate = testDataResults.First().Date;
+            testCount = (decimal)testDataResults.Average(r=>r.Tests);
+            positivityRate = testDataResults.Average(r=>r.PositivityRate);
 
             return true;
         }
 
         private bool ProcessHospitalData(ServiceResponse<DailyHospitalizationRecord[]> response,
             out DateTime hospitalUpdateDate,
-            out int totalHospitalizations,
+            out int hospitalizedLastSevenDays,
             out decimal hospitalizationPct,
             out string error)
         {
             hospitalUpdateDate = DateTime.MinValue;
-            totalHospitalizations = 0;
+            hospitalizedLastSevenDays = 0;
             hospitalizationPct = 0;
             error = null;
 
             if (!response.WasSuccessful) { error = response.Error; return false; }
 
-            var record = response.Response.First();
-            hospitalUpdateDate = record.Date;
-            totalHospitalizations = record.TotalHospitalization;
-            hospitalizationPct = record.CovidPctOfCapacity;
+            var records = response.Response;
+            hospitalUpdateDate = records.First().Date;
+            hospitalizedLastSevenDays = records.Sum(r=>r.NewHopitalizations);
+            hospitalizationPct = records.Average(r=>r.CovidPctOfCapacity);
             return true;
         }
 
         private bool ProcessDeathData(ServiceResponse<DailyDeathRecord[]> response, 
             out DateTime deathUpdateDate, 
-            out int newDeaths, 
+            out decimal newDeaths, 
             out int totalDeaths, 
             out string error)
         {
@@ -154,10 +154,10 @@ namespace Application.Queries.GetToday
 
             if (!response.WasSuccessful) { error = response.Error; return false; }
 
-            var record = response.Response.First();
-            deathUpdateDate = record.Date;
-            newDeaths = record.NewDeaths;
-            totalDeaths = record.TotalDeaths;
+            var records = response.Response;
+            deathUpdateDate = records.First().Date;
+            newDeaths = (decimal)records.Average(r=>r.NewDeaths);
+            totalDeaths = records.Sum(r=>r.NewDeaths);
             return true;
         }
 

@@ -14,11 +14,14 @@ namespace Services.StateOfTexas.Models
 
         public int TotalHospitalization { get; private set; }
 
-        public DailyHospitalizationRecord(DateTime date, int newHopitalizations, int totalHospitalization)
+        public decimal CovidPctOfCapacity { get; private set; }
+
+        public DailyHospitalizationRecord(DateTime date, int newHopitalizations, int totalHospitalization, decimal covidPctOfCapacity)
         {
             NewHopitalizations = newHopitalizations;
             Date = date;
             TotalHospitalization = totalHospitalization;
+            CovidPctOfCapacity = covidPctOfCapacity;
         }
     }
 }

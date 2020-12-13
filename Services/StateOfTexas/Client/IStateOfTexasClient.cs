@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using Services.Common;
 using Services.StateOfTexas.Models;
@@ -7,16 +8,15 @@ namespace Services.StateOfTexas.Client
 {
     public interface IStateOfTexasClient
     {
-        Task<ServiceResponse<NewCaseRecord>> GetLatestNewCaseCount();
+        Task<ServiceResponse<NewCaseRecord[]>> GetLatestNewCaseRecords(int numDays);
 
         Task<ServiceResponse<int>> GetTotalCases();
 
-        Task<ServiceResponse<DailyTestData>> GetLatestPositiveTestCount();
+        Task<ServiceResponse<DailyTestData[]>> GetLatestPositiveTestCount(int numDays);
 
-        Task<ServiceResponse<DailyHospitalizationRecord>> GetLastestHospitalizationCount();
+        Task<ServiceResponse<DailyHospitalizationRecord[]>> GetLastestHospitalizationCount(int numDays);
 
-        Task<ServiceResponse<DailyDeathRecord>> GetLatestDeathCount();
+        Task<ServiceResponse<DailyDeathRecord[]>> GetLatestDeathCount(int numDays);
 
-        Task<ServiceResponse<DailyCovidHospitalizationPctRecord>> GetLatestCovidHospitalizationPct();
     }
 }

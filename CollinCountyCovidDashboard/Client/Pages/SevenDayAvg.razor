@@ -1,0 +1,45 @@
+﻿@page "/SevenDayAvg"
+
+@if (IsLoading)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
+else if (Error != null)
+{
+    <div class="error">@Error</div>
+}
+else
+{
+    var caseFontSize = GetValueFontSize(Model.NewCaseAvg);
+    var testFontSize = GetValueFontSize(Model.TestsPerDayAvg);
+    var hospitalizationSize = GetValueFontSize((int)(Model.CovidPercentOfHospitalizationsAvg * 10000));
+    var deathFontSize = GetValueFontSize(Model.NewDeathsAvg);
+    <div class="index-grid-container">
+        <div class="content-box" style="grid-area:New-Cases;">
+            <div class="header"><div>New Cases</div><div class="subheader">(7 Day Average)</div></div>
+            <div class="primary-value" style="font-size:@caseFontSize">@Model.NewCaseAvg.ToString("0.##")</div>
+            <div class="update-date"><span>Last Updated: @Model.CasesUpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">@Model.NewCasesAvgPer100K.ToString("0.##") per 100k</div>
+        </div>
+        <div class="content-box" style="grid-area:Tests;">
+            <div class="header"><div>New Tests</div><div class="subheader">(7 Day Average)</div></div>
+            <div class="primary-value" style="font-size:@testFontSize">@Model.TestsPerDayAvg.ToString("0.##")</div>
+            <div class="update-date"><span>Last Updated: @Model.TestsUpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">Seven Day Positivity Rate: @Model.PositivityRate.ToString("P2")</div>
+        </div>
+        <div class="content-box" style="grid-area:Hospitalizations;">
+            <div class="header"><div>Hospitalizations</div><div class="subheader">(Covid % of Capacity 7 Day Avg)</div></div>
+            <div class="primary-value" style="font-size:@hospitalizationSize">@Model.CovidPercentOfHospitalizationsAvg.ToString("P2")</div>
+            <div class="update-date"><span>Hospitalization values are for the entire DFW trauma service area. Last Update: @Model.HospitalizationsUpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">Total Hospitalizations Change Last 7 Days: @Model.NewHospitalizationsSevenDayTotal</div>
+        </div>
+        <div class="content-box" style="grid-area:Deaths;">
+            <div class="header"><div>New Deaths</div><div class="subheader">(7 Day Average)</div></div>
+            <div class="primary-value" style="font-size:@deathFontSize">@Model.NewDeathsAvg.ToString("0.##")</div>
+            <div class="update-date"><span>Last Update: @Model.DeathsUpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">Total Deaths Last 7 Days: @Model.NewDeathsSevenDayTotal</div>
+        </div>
+    </div>
+}
