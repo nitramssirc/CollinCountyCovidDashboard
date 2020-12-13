@@ -33,7 +33,10 @@ else
             <div class="header"><div>Hospitalizations</div><div class="subheader">(Covid % of Capacity 7 Day Avg)</div></div>
             <div class="primary-value" style="font-size:@hospitalizationSize">@Model.CovidPercentOfHospitalizationsAvg.ToString("P2")</div>
             <div class="update-date"><span>Hospitalization values are for the entire DFW trauma service area. Last Update: @Model.HospitalizationsUpdateDate.ToShortDateString()</span></div>
-            <div class="footer-value">Total Hospitalizations Change Last 7 Days: @Model.NewHospitalizationsSevenDayTotal</div>
+            <div class="footer-value">
+                Total Hospitalizations Change Last 7 Days: 
+                @(Model.NewHospitalizationsSevenDayTotal > 0 ? "+" : "")@Model.NewHospitalizationsSevenDayTotal
+            </div>
         </div>
         <div class="content-box" style="grid-area:Deaths;">
             <div class="header"><div>New Deaths</div><div class="subheader">(7 Day Average)</div></div>
