@@ -112,6 +112,10 @@ a, .btn-link {
         text-align: center;
     }
 
+        .content-box .header .subheader {
+            font-size: 2vmax;
+        }
+
     .content-box .primary-value {
         height: 70%;
         font-size: 10vmax;
@@ -123,7 +127,7 @@ a, .btn-link {
     .content-box .update-date {
         height: 10%;
         display: flex;
-        font-size: .75vmax;
+        font-size: 1vmax;
         justify-content: flex-end;
     }
 
@@ -142,7 +146,7 @@ a, .btn-link {
     }
 
     .content-box a {
-        color:#b1ceef;
+        color: #b1ceef;
     }
 
 .error {

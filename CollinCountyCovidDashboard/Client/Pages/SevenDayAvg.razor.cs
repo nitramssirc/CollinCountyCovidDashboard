@@ -1,31 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-using Application.Queries.GetToday;
+using Application.Queries.Get7DayAvg;
 
 using Microsoft.AspNetCore.Components;
 
-using Services.Common;
-using Services.StateOfTexas.Client;
-using Services.StateOfTexas.Models;
-
 namespace CollinCountyCovidDashboard.Client.Pages
 {
-    public partial class Index
+    public partial class SevenDayAvg
     {
         #region Dependencies
 
-        [Inject] protected IGetTodayQuery _getTodayQuery { get; set; }
+        [Inject] protected IGet7DayAvgQuery _get7DayAvgQuery { get; set; }
 
         #endregion
 
         #region Properties
 
-        private bool IsLoading => Today == null && Error == null;
+        private bool IsLoading => Model == null && Error == null;
 
-        private Application.Queries.GetToday.Today Today { get; set; }
+        private Application.Queries.Get7DayAvg.SevenDayAvg Model{ get; set; }
 
         private string Error { get; set; }
 
@@ -35,8 +29,8 @@ namespace CollinCountyCovidDashboard.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
-            var getTodayQueryResult = await _getTodayQuery.Execute();
-            if (getTodayQueryResult.WasSuccessful) Today = getTodayQueryResult.Result;
+            var getTodayQueryResult = await _get7DayAvgQuery.Execute();
+            if (getTodayQueryResult.WasSuccessful) Model = getTodayQueryResult.Result;
             else Error = getTodayQueryResult.Error;
         }
 
@@ -49,6 +43,16 @@ namespace CollinCountyCovidDashboard.Client.Pages
             if (val < 1000) return "10vmax";
             var digitCount = Math.Floor(Math.Log10(val/1000))+1;
             var fontSize = 10 - digitCount*3;
+            if (fontSize < 2) return "2vmax";
+            return $"{fontSize}vmax";
+        }
+
+        private string GetValueFontSize(decimal val)
+        {
+            val *= 10;
+            if (val < 1000) return "10vmax";
+            var digitCount = Math.Floor(Math.Log10((double)(val / 1000))) + 1;
+            var fontSize = 10 - digitCount * 3;
             if (fontSize < 2) return "2vmax";
             return $"{fontSize}vmax";
         }

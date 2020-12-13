@@ -16,7 +16,7 @@ else
 {
     var caseFontSize = GetValueFontSize(Today.Cases);
     var testFontSize = GetValueFontSize(Today.Tests);
-    var hospitalizationSize = GetValueFontSize(Today.Hospitalizations);
+    var hospitalizationSize = GetValueFontSize((int)(Today.CovidPercentOfHospitalizations * 10000));
     var deathFontSize = GetValueFontSize(Today.Deaths);
     <div class="index-grid-container">
         <div class="content-box" style="grid-area:New-Cases;">
@@ -26,19 +26,19 @@ else
             <div class="footer-value">@Today.CasesPer100K.ToString("0.##") per 100k</div>
         </div>
         <div class="content-box" style="grid-area:Tests;">
-            <div class="header">Tests</div>
+            <div class="header">New Tests</div>
             <div class="primary-value" style="font-size:@testFontSize">@Today.Tests</div>
             <div class="update-date"><span>Last Updated: @Today.TestsUpdateDate.ToShortDateString()</span></div>
             <div class="footer-value">Positivity Rate: @Today.PositivityRate.ToString("P")</div>
         </div>
         <div class="content-box" style="grid-area:Hospitalizations;">
-            <div class="header">Hospitalizations</div>
-            <div class="primary-value" style="font-size:@hospitalizationSize">@Today.Hospitalizations</div>
-            <div class="update-date"><span>Hospitalization values are for the entire DFW trauma service area Last Update: @Today.HospitalizationsUpdateDate.ToShortDateString()</span></div>
-            <div class="footer-value">Total Hospitalizations: @Today.TotalCurrentlyHospitalized</div>
+            <div class="header"><div>Hospitalizations</div><div class="subheader">(Covid % of Capacity)</div></div>
+            <div class="primary-value" style="font-size:@hospitalizationSize">@Today.CovidPercentOfHospitalizations.ToString("P2")</div>
+            <div class="update-date"><span>Hospitalization values are for the entire DFW trauma service area. Last Update: @Today.HospitalizationsUpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">Total Currently Hospitalized: @Today.TotalCurrentlyHospitalized</div>
         </div>
         <div class="content-box" style="grid-area:Deaths;">
-            <div class="header">Deaths</div>
+            <div class="header">New Deaths</div>
             <div class="primary-value" style="font-size:@deathFontSize">@Today.Deaths</div>
             <div class="update-date"><span>Last Update: @Today.DeathsUpdateDate.ToShortDateString()</span></div>
             <div class="footer-value">Total Deaths: @Today.TotalDeaths</div>

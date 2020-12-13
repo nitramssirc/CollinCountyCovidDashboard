@@ -1,4 +1,5 @@
 
+using Application.Queries.Get7DayAvg;
 using Application.Queries.GetToday;
 
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -27,6 +28,7 @@ namespace CollinCountyCovidDashboard.Client
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddSingleton(typeof(IStateOfTexasClient), typeof(StateOfTexasClient));
             builder.Services.AddScoped(typeof(IGetTodayQuery), typeof(GetTodayQuery));
+            builder.Services.AddScoped(typeof(IGet7DayAvgQuery), typeof(Get7DayAvgQuery));
 
             var codePagesEncodingProvider = CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(codePagesEncodingProvider);

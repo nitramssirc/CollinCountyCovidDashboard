@@ -20,22 +20,21 @@ namespace Services.StateOfTexas.Client
 
         #region Implementation of GetCumulativeTestsOverTimeForCounty
 
-        public async Task<ServiceResponse<NewCaseRecord>> GetLatestNewCaseCount()
+        public async Task<ServiceResponse<NewCaseRecord[]>> GetLatestNewCaseRecords(int numDays)
         {
             return await Task.Run(() =>
             {
                 try
                 {
                     var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
-                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]);
-                    var latestDate = newCases.Max(nc => nc.Key);
+                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]).OrderByDescending(r=>r.Date);
 
-                    var newCaseRecord = new NewCaseRecord(newCases[latestDate], latestDate);
-                    return new ServiceResponse<NewCaseRecord>(newCaseRecord);
+                    var returnRecords = newCases.Take(numDays).ToArray();
+                    return new ServiceResponse<NewCaseRecord[]>(returnRecords);
                 }
                 catch (Exception ex)
                 {
-                    return new ServiceResponse<NewCaseRecord>(
+                    return new ServiceResponse<NewCaseRecord[]>(
                         "An error occurred loading the new case data from the State of Texas", ex);
                 }
             }
@@ -50,7 +49,7 @@ namespace Services.StateOfTexas.Client
                 {
                     var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
                     var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]);
-                    var totalCases = newCases.Sum(nc => nc.Value);
+                    var totalCases = newCases.Sum(nc => nc.NewCases);
 
                     return new ServiceResponse<int>(totalCases);
                 }
@@ -63,69 +62,73 @@ namespace Services.StateOfTexas.Client
             );
         }
 
-        public async Task<ServiceResponse<DailyTestData>> GetLatestPositiveTestCount()
+        public async Task<ServiceResponse<DailyTestData[]>> GetLatestPositiveTestCount(int numDays)
         {
             return await Task.Run(() =>
             {
                 try
                 {
                     var testDataSet = LoadExcelDataAsDataSet("CumulativeTestsOverTimeByCounty.xlsx");
-                    var testData = GetDailyTestCaseCount(testDataSet.Tables[0]);
-                    var latestDate = testData.Max(nc => nc.Key);
-                    var latestTestCases = testData[latestDate];
+                    var testData = GetDailyTestCaseCount(testDataSet.Tables[0]).OrderByDescending(t=>t.Item1);
+                    var latestTestCases = testData.Take(numDays);
 
                     var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
                     var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]);
-                    var casesOnLatestTestDate = newCases[latestDate];
-                    var positivityRate = (decimal)casesOnLatestTestDate / latestTestCases;
-                    var latestTestDataRecord = new DailyTestData(latestDate, latestTestCases, positivityRate);
-                    return new ServiceResponse<DailyTestData>(latestTestDataRecord);
+
+                    var returnList = new List<DailyTestData>();
+                    foreach (var testCaseData in latestTestCases)
+                    {
+                        var casesOnLatestTestDate = newCases.FirstOrDefault(nc => nc.Date == testCaseData.Item1);
+                        var positivityRate = (decimal)casesOnLatestTestDate.NewCases / testCaseData.Item2;
+                        returnList.Add(new DailyTestData(testCaseData.Item1, testCaseData.Item2, positivityRate));
+                    }
+                    return new ServiceResponse<DailyTestData[]>(returnList.ToArray());
                 }
                 catch (Exception ex)
                 {
-                    return new ServiceResponse<DailyTestData>(
+                    return new ServiceResponse<DailyTestData[]>(
                         "An error occurred loading the test data from the State of Texas", ex);
                 }
             }
             );
         }
 
-        public async Task<ServiceResponse<DailyHospitalizationRecord>> GetLastestHospitalizationCount()
+        public async Task<ServiceResponse<DailyHospitalizationRecord[]>> GetLastestHospitalizationCount(int numDays)
         {
             return await Task.Run(() =>
             {
                 try
                 {
                     var hospitalizationsDataSet = LoadExcelDataAsDataSet("CombinedHospitalDataoverTimebyTSARegion.xlsx");
-                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsDataSet.Tables[0]);
-                    var latestRecord = hospitalizationRecords.Last();
+                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsDataSet.Tables).OrderByDescending(r => r.Date);
+                    var latestRecords = hospitalizationRecords.Take(numDays);
 
-                    return new ServiceResponse<DailyHospitalizationRecord>(latestRecord);
+                    return new ServiceResponse<DailyHospitalizationRecord[]>(latestRecords.ToArray());
                 }
                 catch (Exception ex)
                 {
-                    return new ServiceResponse<DailyHospitalizationRecord>(
+                    return new ServiceResponse<DailyHospitalizationRecord[]>(
                         "An error occurred loading the hospital data from the State of Texas", ex);
                 }
             }
             );
         }
 
-        public async Task<ServiceResponse<DailyDeathRecord>> GetLatestDeathCount()
+        public async Task<ServiceResponse<DailyDeathRecord[]>> GetLatestDeathCount(int numDays)
         {
             return await Task.Run(() =>
             {
                 try
                 {
                     var deathDataSet = LoadExcelDataAsDataSet("TexasCOVID19FatalityCountDatabyCounty.xlsx");
-                    var deathRecords = GetDeathRecords(deathDataSet.Tables[0]);
-                    var latestRecord = deathRecords.Last();
+                    var deathRecords = GetDeathRecords(deathDataSet.Tables[0]).OrderByDescending(r => r.Date);
+                    var latestRecord = deathRecords.Take(numDays);
 
-                    return new ServiceResponse<DailyDeathRecord>(latestRecord);
+                    return new ServiceResponse<DailyDeathRecord[]>(latestRecord.ToArray());
                 }
                 catch (Exception ex)
                 {
-                    return new ServiceResponse<DailyDeathRecord>(
+                    return new ServiceResponse<DailyDeathRecord[]>(
                         "An error occurred loading the fatality data from the State of Texas", ex);
                 }
             }
@@ -151,25 +154,25 @@ namespace Services.StateOfTexas.Client
             return assembly.GetManifestResourceStream($"Services.StateOfTexas.Data.{filename}");
         }
 
-        private Dictionary<DateTime, int> GetNewCaseDataFromDataSet(DataTable newCaseData)
+        private List<NewCaseRecord> GetNewCaseDataFromDataSet(DataTable newCaseData)
         {
             var columnCount = newCaseData.Columns.Count;
-            var returnDictionary = new Dictionary<DateTime, int>();
+            var returnList = new List<NewCaseRecord>();
             for (int colIndex = 1; colIndex < columnCount; colIndex++)
             {
                 var date = ParseNewCaseDate(newCaseData.Rows[0][colIndex].ToString());
                 var newCaseCount = ParseNewCaseCount(newCaseData.Rows[1][colIndex].ToString());
 
-                returnDictionary.Add(date, newCaseCount);
+                returnList.Add(new NewCaseRecord(newCaseCount,date));
             }
 
-            return returnDictionary;
+            return returnList;
         }
 
-        private Dictionary<DateTime, int> GetDailyTestCaseCount(DataTable testData)
+        private List<Tuple<DateTime, int>> GetDailyTestCaseCount(DataTable testData)
         {
             var columnCount = testData.Columns.Count;
-            var returnDictionary = new Dictionary<DateTime, int>();
+            var returnList = new List<Tuple<DateTime, int>>();
             var prevTestCount = 0;
             for (int colIndex = 1; colIndex < columnCount; colIndex++)
             {
@@ -178,25 +181,31 @@ namespace Services.StateOfTexas.Client
                 var dailyTestCount = testCount - prevTestCount;
                 prevTestCount = testCount;
 
-                returnDictionary.Add(date, dailyTestCount);
+                returnList.Add(new Tuple<DateTime, int>(date, dailyTestCount));
             }
 
-            return returnDictionary;
+            return returnList;
         }
 
-        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTable hospitalizationData)
+        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTableCollection hospitalizationData)
         {
-            var columnCount = hospitalizationData.Columns.Count;
+            var hospitalCountTable = hospitalizationData[0];
+            var covidPctOfCapacityTable = hospitalizationData[1];
+
+            var columnCount = hospitalCountTable.Columns.Count;
             var returnList = new List<DailyHospitalizationRecord>();
             var prevHospitalizationCount = 0;
             for (int colIndex = 2; colIndex < columnCount; colIndex++)
             {
-                var date = ParseHospitalDataDate(hospitalizationData.Rows[0][colIndex].ToString());
-                var hospitalizationCount = ParseHospitalizationCount(hospitalizationData.Rows[1][colIndex].ToString());
+                var date = ParseHospitalDataDate(hospitalCountTable.Rows[0][colIndex].ToString());
+                var hospitalizationCount = ParseHospitalizationCount(hospitalCountTable.Rows[1][colIndex].ToString());
                 var dailyHospitalizationCount = hospitalizationCount - prevHospitalizationCount;
                 prevHospitalizationCount = hospitalizationCount;
 
-                returnList.Add(new DailyHospitalizationRecord(date, dailyHospitalizationCount, hospitalizationCount));
+                var covidPctOfHospitalizations = ParseHospitalizationPct(covidPctOfCapacityTable.Rows[1][colIndex].ToString());
+
+                returnList.Add(new DailyHospitalizationRecord(date, dailyHospitalizationCount, hospitalizationCount, 
+                    covidPctOfHospitalizations));
             }
 
             return returnList;
@@ -215,6 +224,21 @@ namespace Services.StateOfTexas.Client
                 prevDeathCount = deathCount;
 
                 returnList.Add(new DailyDeathRecord(date, dailyDeathCount, deathCount));
+            }
+
+            return returnList;
+        }
+
+        private List<DailyCovidHospitalizationPctRecord> GetCovidHopitalizationPctRecords(DataTable dataTable)
+        {
+            var columnCount = dataTable.Columns.Count;
+            var returnList = new List<DailyCovidHospitalizationPctRecord>();
+            for (int colIndex = 2; colIndex < columnCount; colIndex++)
+            {
+                var date = ParseHospitalDataDate(dataTable.Rows[0][colIndex].ToString());
+                var pct = ParseHospitalizationPct(dataTable.Rows[1][colIndex].ToString());
+
+                returnList.Add(new DailyCovidHospitalizationPctRecord(pct, date));
             }
 
             return returnList;
@@ -273,6 +297,12 @@ namespace Services.StateOfTexas.Client
         {
             return int.Parse(hospitalizationCountString);
         }
+
+        private decimal ParseHospitalizationPct(string dataValue)
+        {
+            return decimal.Parse(dataValue.Replace("%", string.Empty));
+        }
+
 
         private int ParseDeathCount(string deathCountString)
         {
