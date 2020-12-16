@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+
+using CsvHelper;
 
 using ExcelDataReader;
 
@@ -26,8 +29,8 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
-                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]).OrderByDescending(r=>r.Date);
+                    var newCaseDataSet = LoadCSVDataAsDataTable("TexasCOVID19NewConfirmedCasesbyCounty.csv");
+                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet).OrderByDescending(r => r.Date);
 
                     var returnRecords = newCases.Take(numDays).ToArray();
                     return new ServiceResponse<NewCaseRecord[]>(returnRecords);
@@ -47,8 +50,8 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
-                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]);
+                    var newCaseDataSet = LoadCSVDataAsDataTable("TexasCOVID19NewConfirmedCasesbyCounty.csv");
+                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet);
                     var totalCases = newCases.Sum(nc => nc.NewCases);
 
                     return new ServiceResponse<int>(totalCases);
@@ -68,12 +71,12 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var testDataSet = LoadExcelDataAsDataSet("CumulativeTestsOverTimeByCounty.xlsx");
-                    var testData = GetDailyTestCaseCount(testDataSet.Tables[0]).OrderByDescending(t=>t.Item1);
+                    var testDataSet = LoadCSVDataAsDataTable("CumulativeTestsOverTimeByCounty.csv");
+                    var testData = GetDailyTestCaseCount(testDataSet).OrderByDescending(t => t.Item1);
                     var latestTestCases = testData.Take(numDays);
 
-                    var newCaseDataSet = LoadExcelDataAsDataSet("TexasCOVID19NewConfirmedCasesbyCounty.xlsx");
-                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet.Tables[0]);
+                    var newCaseDataSet = LoadCSVDataAsDataTable("TexasCOVID19NewConfirmedCasesbyCounty.csv");
+                    var newCases = GetNewCaseDataFromDataSet(newCaseDataSet);
 
                     var returnList = new List<DailyTestData>();
                     foreach (var testCaseData in latestTestCases)
@@ -99,8 +102,9 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var hospitalizationsDataSet = LoadExcelDataAsDataSet("CombinedHospitalDataoverTimebyTSARegion.xlsx");
-                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsDataSet.Tables).OrderByDescending(r => r.Date);
+                    var hospitalizationsTable = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv");
+                    var covidPctCapacityTable = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_CovidPctCapacity.csv");
+                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsTable, covidPctCapacityTable).OrderByDescending(r => r.Date);
                     var latestRecords = hospitalizationRecords.Take(numDays);
 
                     return new ServiceResponse<DailyHospitalizationRecord[]>(latestRecords.ToArray());
@@ -120,8 +124,8 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var deathDataSet = LoadExcelDataAsDataSet("TexasCOVID19FatalityCountDatabyCounty.xlsx");
-                    var deathRecords = GetDeathRecords(deathDataSet.Tables[0]).OrderByDescending(r => r.Date);
+                    var deathDataSet = LoadCSVDataAsDataTable("TexasCOVID19FatalityCountDatabyCounty.csv");
+                    var deathRecords = GetDeathRecords(deathDataSet).OrderByDescending(r => r.Date);
                     var latestRecord = deathRecords.Take(numDays);
 
                     return new ServiceResponse<DailyDeathRecord[]>(latestRecord.ToArray());
@@ -139,14 +143,37 @@ namespace Services.StateOfTexas.Client
 
         #region Private Method
 
+        private DataTable LoadCSVDataAsDataTable(string csvFile)
+        {
+            var data = new DataTable();
+            var createColumns = true;
+            using var reader = new StreamReader(GetManifestDataFileStream(csvFile));
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                while (csv.Read())
+                {
+                    if (createColumns)
+                    {
+                        for (int i = 0; i < csv.Context.Record.Length; i++)
+                            data.Columns.Add(i.ToString());
+                        createColumns = false;
+                    }
+
+                    DataRow row = data.NewRow();
+                    for (int i = 0; i < csv.Context.Record.Length; i++)
+                        row[i] = csv.Context.Record[i];
+                    data.Rows.Add(row);
+                }
+            return data;
+        }
+
         private DataSet LoadExcelDataAsDataSet(string excelFile)
         {
-            var excelStream = GetExcelFileStream(excelFile);
+            var excelStream = GetManifestDataFileStream(excelFile);
             using var excelReader = ExcelReaderFactory.CreateReader(excelStream);
             return excelReader.AsDataSet();
         }
 
-        private Stream GetExcelFileStream(string filename)
+        private Stream GetManifestDataFileStream(string filename)
         {
 
             var assembly = Assembly.GetExecutingAssembly();
@@ -163,7 +190,7 @@ namespace Services.StateOfTexas.Client
                 var date = ParseNewCaseDate(newCaseData.Rows[0][colIndex].ToString());
                 var newCaseCount = ParseNewCaseCount(newCaseData.Rows[1][colIndex].ToString());
 
-                returnList.Add(new NewCaseRecord(newCaseCount,date));
+                returnList.Add(new NewCaseRecord(newCaseCount, date));
             }
 
             return returnList;
@@ -187,11 +214,8 @@ namespace Services.StateOfTexas.Client
             return returnList;
         }
 
-        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTableCollection hospitalizationData)
+        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTable hospitalCountTable, DataTable covidPctOfCapacityTable)
         {
-            var hospitalCountTable = hospitalizationData[0];
-            var covidPctOfCapacityTable = hospitalizationData[1];
-
             var columnCount = hospitalCountTable.Columns.Count;
             var returnList = new List<DailyHospitalizationRecord>();
             var prevHospitalizationCount = 0;
@@ -204,7 +228,7 @@ namespace Services.StateOfTexas.Client
 
                 var covidPctOfHospitalizations = ParseHospitalizationPct(covidPctOfCapacityTable.Rows[1][colIndex].ToString());
 
-                returnList.Add(new DailyHospitalizationRecord(date, dailyHospitalizationCount, hospitalizationCount, 
+                returnList.Add(new DailyHospitalizationRecord(date, dailyHospitalizationCount, hospitalizationCount,
                     covidPctOfHospitalizations));
             }
 
@@ -289,7 +313,7 @@ namespace Services.StateOfTexas.Client
 
         private int ParseTestCount(string testCountString)
         {
-            var filteredString= testCountString.Replace(",", string.Empty);
+            var filteredString = testCountString.Replace(",", string.Empty);
             return int.Parse(filteredString);
         }
 
@@ -300,7 +324,10 @@ namespace Services.StateOfTexas.Client
 
         private decimal ParseHospitalizationPct(string dataValue)
         {
-            return decimal.Parse(dataValue.Replace("%", string.Empty));
+            var hasPct = dataValue.Contains("%");
+            return hasPct
+                ? decimal.Parse(dataValue.Replace("%", string.Empty)) / 100
+                : decimal.Parse(dataValue);
         }
 
 
