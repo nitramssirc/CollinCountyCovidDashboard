@@ -31,6 +31,10 @@ namespace DataUpdater
         private static IEnumerable<IDataUpdater> GetUpdaters()
         {
             yield return new NewCasesUpdater();
+            yield return new TestDataUpdater();
+            yield return new FatalitiesUpdater();
+            yield return new CovidHospitalizationsUpdater();
+            yield return new CovidPctCapacityUpdater();
         }
     }
 }

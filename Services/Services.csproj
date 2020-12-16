@@ -6,14 +6,22 @@
 
   <ItemGroup>
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion.xlsx" />
+    <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv" />
+    <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidPctCapacity.csv" />
+    <None Remove="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.csv" />
     <None Remove="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.xlsx" />
+    <None Remove="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.csv" />
     <None Remove="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.xlsx" />
     <None Remove="StateOfTexas\Data\TexasCOVID19NewConfirmedCasesbyCounty.csv" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion.xlsx" />
+    <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv" />
+    <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidPctCapacity.csv" />
+    <EmbeddedResource Include="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.xlsx" />
+    <EmbeddedResource Include="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.xlsx" />
     <EmbeddedResource Include="StateOfTexas\Data\TexasCOVID19NewConfirmedCasesbyCounty.csv" />
   </ItemGroup>

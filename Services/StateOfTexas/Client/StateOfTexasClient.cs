@@ -71,8 +71,8 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var testDataSet = LoadExcelDataAsDataSet("CumulativeTestsOverTimeByCounty.xlsx");
-                    var testData = GetDailyTestCaseCount(testDataSet.Tables[0]).OrderByDescending(t => t.Item1);
+                    var testDataSet = LoadCSVDataAsDataTable("CumulativeTestsOverTimeByCounty.csv");
+                    var testData = GetDailyTestCaseCount(testDataSet).OrderByDescending(t => t.Item1);
                     var latestTestCases = testData.Take(numDays);
 
                     var newCaseDataSet = LoadCSVDataAsDataTable("TexasCOVID19NewConfirmedCasesbyCounty.csv");
@@ -102,8 +102,9 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var hospitalizationsDataSet = LoadExcelDataAsDataSet("CombinedHospitalDataoverTimebyTSARegion.xlsx");
-                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsDataSet.Tables).OrderByDescending(r => r.Date);
+                    var hospitalizationsTable = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv");
+                    var covidPctCapacityTable = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_CovidPctCapacity.csv");
+                    var hospitalizationRecords = GetHospitalizationRecords(hospitalizationsTable, covidPctCapacityTable).OrderByDescending(r => r.Date);
                     var latestRecords = hospitalizationRecords.Take(numDays);
 
                     return new ServiceResponse<DailyHospitalizationRecord[]>(latestRecords.ToArray());
@@ -123,8 +124,8 @@ namespace Services.StateOfTexas.Client
             {
                 try
                 {
-                    var deathDataSet = LoadExcelDataAsDataSet("TexasCOVID19FatalityCountDatabyCounty.xlsx");
-                    var deathRecords = GetDeathRecords(deathDataSet.Tables[0]).OrderByDescending(r => r.Date);
+                    var deathDataSet = LoadCSVDataAsDataTable("TexasCOVID19FatalityCountDatabyCounty.csv");
+                    var deathRecords = GetDeathRecords(deathDataSet).OrderByDescending(r => r.Date);
                     var latestRecord = deathRecords.Take(numDays);
 
                     return new ServiceResponse<DailyDeathRecord[]>(latestRecord.ToArray());
@@ -213,11 +214,8 @@ namespace Services.StateOfTexas.Client
             return returnList;
         }
 
-        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTableCollection hospitalizationData)
+        private List<DailyHospitalizationRecord> GetHospitalizationRecords(DataTable hospitalCountTable, DataTable covidPctOfCapacityTable)
         {
-            var hospitalCountTable = hospitalizationData[0];
-            var covidPctOfCapacityTable = hospitalizationData[1];
-
             var columnCount = hospitalCountTable.Columns.Count;
             var returnList = new List<DailyHospitalizationRecord>();
             var prevHospitalizationCount = 0;
@@ -326,7 +324,10 @@ namespace Services.StateOfTexas.Client
 
         private decimal ParseHospitalizationPct(string dataValue)
         {
-            return decimal.Parse(dataValue.Replace("%", string.Empty));
+            var hasPct = dataValue.Contains("%");
+            return hasPct
+                ? decimal.Parse(dataValue.Replace("%", string.Empty)) / 100
+                : decimal.Parse(dataValue);
         }
 
 

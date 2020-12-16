@@ -7,13 +7,13 @@ using DataUpdater.Interfaces;
 
 namespace DataUpdater.DataUpdaters
 {
-    public class NewCasesUpdater : TexasStateExcelDataUpdater, IDataUpdater
+    public class FatalitiesUpdater : TexasStateExcelDataUpdater, IDataUpdater
     {
         #region TexasStateExcelDataUpdater
 
-        protected override string StateOfTexasDataUrl => @"https://dshs.texas.gov/coronavirus/TexasCOVID-19NewCasesOverTimebyCounty.xlsx";
+        protected override string StateOfTexasDataUrl => @"https://dshs.texas.gov/coronavirus/TexasCOVID19DailyCountyFatalityCountData.xlsx";
 
-        protected override string LocalDataName => "TexasCOVID19NewConfirmedCasesbyCounty";
+        protected override string LocalDataName => "TexasCOVID19FatalityCountDatabyCounty";
 
         protected override int texasDataTableIndex => 0;
 
