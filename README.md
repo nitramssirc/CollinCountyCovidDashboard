@@ -1,2 +1,2 @@
 # CollinCountyCovidDashboard
-Code repo for CollinCountyCovidDashboard.com
+Code repo for https://www.collincountycoviddashboard.com/
