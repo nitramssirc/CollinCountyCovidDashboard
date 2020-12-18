@@ -26,8 +26,4 @@
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.xlsx" />
-  </ItemGroup>
-
 </Project>

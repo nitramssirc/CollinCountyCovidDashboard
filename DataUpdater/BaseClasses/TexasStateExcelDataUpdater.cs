@@ -16,6 +16,7 @@ namespace DataUpdater.BaseClasses
     {
         protected abstract string StateOfTexasDataUrl { get; }
         protected abstract string LocalDataName { get; }
+        protected virtual string LocalStateDataName { get { return LocalDataName; } }
 
         protected abstract int texasDataTableIndex { get; }
 
@@ -78,10 +79,20 @@ namespace DataUpdater.BaseClasses
             }
         }
 
+        protected string LocalStateDataFilePath
+        {
+            get
+            {
+                return Path.GetFullPath($@"{Assembly.GetExecutingAssembly().Location}\..\..\..\..\..\Services\StateOfTexas\Data\{LocalStateDataName}.xlsx");
+
+            }
+        }
+
         protected async Task<DataSet> DownloadDataSet()
         {
             var webClient = new WebClient();
             var data = await webClient.DownloadDataTaskAsync(new Uri(StateOfTexasDataUrl));
+            await File.WriteAllBytesAsync(LocalStateDataFilePath, data);
             var stream = new MemoryStream(data);
             return GetExcelDataSetFromStream(stream);
         }

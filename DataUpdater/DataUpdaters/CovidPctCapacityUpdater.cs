@@ -15,6 +15,8 @@ namespace DataUpdater.DataUpdaters
 
         protected override string LocalDataName => "CombinedHospitalDataoverTimebyTSARegion_CovidPctCapacity";
 
+        protected override string LocalStateDataName => "CombinedHospitalDataoverTimebyTSARegion";
+
         protected override int texasDataTableIndex => 1;
 
         protected override int texasDateRowIndex => 2;
