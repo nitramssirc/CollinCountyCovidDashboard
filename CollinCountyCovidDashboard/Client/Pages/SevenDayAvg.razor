@@ -18,7 +18,7 @@ else
     var deathFontSize = GetValueFontSize(Model.NewDeathsAvg);
     <div class="index-grid-container">
         <div class="content-box" style="grid-area:New-Cases;">
-            <div class="header"><div>New Cases</div><div class="subheader">(7 Day Average)</div></div>
+            <div class="header"><div>New Confirmed Cases</div><div class="subheader">(7 Day Average)</div></div>
             <div class="primary-value" style="font-size:@caseFontSize">@Model.NewCaseAvg.ToString("0.##")</div>
             <div class="update-date"><span>Last Updated: @Model.CasesUpdateDate.ToShortDateString()</span></div>
             <div class="footer-value">@Model.NewCasesAvgPer100K.ToString("0.##") per 100k</div>
