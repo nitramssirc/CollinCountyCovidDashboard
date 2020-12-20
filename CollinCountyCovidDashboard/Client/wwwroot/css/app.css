@@ -66,7 +66,7 @@ a, .btn-link {
 }
 
 .page-container {
-    height: 100vh;
+    height: 98%;
     margin: 1vw;
     display: grid;
     grid-template-columns: 1fr;
@@ -81,6 +81,7 @@ a, .btn-link {
 
     .header .header-text {
         font-size: 2vmax;
+
     }
 
     .header .content-box {
@@ -108,6 +109,7 @@ a, .btn-link {
     .content-box .header {
         font-size: 3vmax;
         text-align: center;
+        line-height: 100%;
     }
 
         .content-box .header .subheader {
