@@ -13,6 +13,7 @@ namespace CollinCountyCovidDashboard.Client.Shared
     {
         Latest,
         SevenDayAvg,
+        NewCaseTrends,
         Sources
     }
 
@@ -54,6 +55,8 @@ namespace CollinCountyCovidDashboard.Client.Shared
             {
                 case NavPageType.SevenDayAvg:
                     return "7 Day Averages";
+                case NavPageType.NewCaseTrends:
+                    return "New Cases Trend";
                 default:
                     return curPage.ToString();
             }

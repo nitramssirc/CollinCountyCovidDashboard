@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{A20BB716-4A90-4B7A-8939-7292F47FC5F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataUpdater", "DataUpdater\DataUpdater.csproj", "{080E5DF1-3B0A-4462-87AE-70D78BBF9727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataUpdater", "DataUpdater\DataUpdater.csproj", "{080E5DF1-3B0A-4462-87AE-70D78BBF9727}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
