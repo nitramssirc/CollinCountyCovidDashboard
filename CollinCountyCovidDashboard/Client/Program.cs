@@ -1,5 +1,6 @@
 
 using Application.Queries.Get7DayAvg;
+using Application.Queries.GetDeaths;
 using Application.Queries.GetNewCases;
 using Application.Queries.GetToday;
 
@@ -43,6 +44,7 @@ namespace CollinCountyCovidDashboard.Client
             builder.Services.AddScoped(typeof(IGetTodayQuery), typeof(GetTodayQuery));
             builder.Services.AddScoped(typeof(IGet7DayAvgQuery), typeof(Get7DayAvgQuery));
             builder.Services.AddScoped(typeof(IGetNewCasesQuery), typeof(GetNewCasesQuery));
+            builder.Services.AddScoped(typeof(IGetDeathsQuery), typeof(GetDeathsQuery));
 
             var codePagesEncodingProvider = CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(codePagesEncodingProvider);
