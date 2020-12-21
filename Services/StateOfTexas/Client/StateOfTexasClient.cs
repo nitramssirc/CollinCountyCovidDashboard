@@ -81,9 +81,11 @@ namespace Services.StateOfTexas.Client
                     var returnList = new List<DailyTestData>();
                     foreach (var testCaseData in latestTestCases)
                     {
-                        var casesOnLatestTestDate = newCases.FirstOrDefault(nc => nc.Date == testCaseData.Item1);
-                        var positivityRate = (decimal)casesOnLatestTestDate.NewCases / testCaseData.Item2;
-                        returnList.Add(new DailyTestData(testCaseData.Item1, testCaseData.Item2, positivityRate));
+                        var date = testCaseData.Item1;
+                        var tests = testCaseData.Item2;
+                        var casesOnLatestTestDate = newCases.FirstOrDefault(nc => nc.Date == date);
+                        var positivityRate = tests == 0 ? 0 : (decimal)casesOnLatestTestDate.NewCases / tests;
+                        returnList.Add(new DailyTestData(date, tests, positivityRate));
                     }
                     return new ServiceResponse<DailyTestData[]>(returnList.ToArray());
                 }

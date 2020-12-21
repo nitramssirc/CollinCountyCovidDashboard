@@ -14,6 +14,8 @@ namespace CollinCountyCovidDashboard.Client.Shared
         Latest,
         SevenDayAvg,
         NewCaseTrends,
+        NewDeathsTrend,
+        PositivityRateTrend,
         Sources
     }
 
@@ -57,6 +59,10 @@ namespace CollinCountyCovidDashboard.Client.Shared
                     return "7 Day Averages";
                 case NavPageType.NewCaseTrends:
                     return "New Cases Trend";
+                case NavPageType.NewDeathsTrend:
+                    return "New Deaths Trend";
+                case NavPageType.PositivityRateTrend:
+                    return "Positivity Rate Trend";
                 default:
                     return curPage.ToString();
             }
