@@ -3,9 +3,6 @@
 <div class="souces-container">
     <div class="content-box">
         <div class="header">New Confirmed Cases<div class="subheader">(Last 30 Days)</div></div>
-        <div class="chartContainer">
-            <LineChart @ref="lineChart" TItem="int" OptionsObject="@chartOptions">
-            </LineChart>
-        </div>
+        <TrendChart @ref="_trendChart" ChartDataType="int" DailyRecordLabel="New Confirmed Cases"/>
     </div>
 </div>
