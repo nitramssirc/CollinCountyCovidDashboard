@@ -17,11 +17,27 @@ namespace CollinCountyCovidDashboard.Client.Pages
 {
     public partial class NewCaseTrends
     {
-        TrendChart<int> _trendChart;
+        #region Dependencies
 
         [Inject] IGetNewCasesQuery _getNewCasesQuery { get; set; }
 
+        #endregion
 
+        #region View References
+
+        TrendChart<int> _trendChart;
+        NumDaysSlider _numDaysSlider;
+
+        #endregion
+
+        #region View Properties
+
+        private int NumDays
+        {
+            get; set;
+        }
+
+        #endregion
 
         #region Overrides
 
@@ -29,16 +45,39 @@ namespace CollinCountyCovidDashboard.Client.Pages
         {
             if (firstRender)
             {
-                var queryResults = await _getNewCasesQuery.Execute(30);
-                await _trendChart.SetChartData(ConstructTrendChartRecords(queryResults));
+                NumDays = _numDaysSlider.NumDays;
+                await LoadChartData();
+                StateHasChanged();
             }
         }
 
         #endregion
 
+        #region Event Handlers
+
+        private async Task OnNumDaysChanged()
+        {
+            NumDays = _numDaysSlider.NumDays;
+            await LoadChartData();
+            StateHasChanged();
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private async Task LoadChartData()
+        {
+            var queryResults = await _getNewCasesQuery.Execute(NumDays);
+            await _trendChart.SetChartData(ConstructTrendChartRecords(queryResults));
+        }
+
         private TrendChartRecord<int>[] ConstructTrendChartRecords(QueryResult<NewCaseModel[]> queryResults)
         {
             return queryResults.Result.Select(r => new TrendChartRecord<int>(r.Date, r.NewCases, (int)Math.Round(r.SevenDayAvg))).ToArray();
         }
+
+        #endregion
+
     }
 }

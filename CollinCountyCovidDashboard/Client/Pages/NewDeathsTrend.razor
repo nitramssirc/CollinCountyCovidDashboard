@@ -2,7 +2,8 @@
 
 <div class="souces-container">
     <div class="content-box">
-        <div class="header">New Deaths<div class="subheader">(Last 30 Days)</div></div>
-        <TrendChart @ref="_trendChart" ChartDataType="decimal" DailyRecordLabel="New Deaths"/>
+        <div class="header">New Deaths<div class="subheader">(Last @NumDays Days)</div></div>
+        <NumDaysSlider @ref="_numDaysSlider" NumDaysChanged="@OnNumDaysChanged" />
+        <TrendChart @ref="_trendChart" ChartDataType="decimal" DailyRecordLabel="New Deaths" />
     </div>
 </div>

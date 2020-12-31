@@ -58,6 +58,10 @@ namespace CollinCountyCovidDashboard.Client.Shared
             },
             responsive = true,
             maintainAspectRatio = false,
+            animation = new
+            {
+                duration=0
+            }
         };
 
         #endregion

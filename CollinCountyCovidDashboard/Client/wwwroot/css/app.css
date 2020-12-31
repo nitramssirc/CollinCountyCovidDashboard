@@ -207,10 +207,13 @@ a, .btn-link {
         cursor: pointer;
     }
 
-.chartContainer{
-    position:relative;
-    height:90%;
-    width:100%;
+.numDaysSlider{
+    margin:1%;
+}
+.chartContainer {
+    position: relative;
+    height: 90%;
+    width: 100%;
 }
 
 /*Index Page*/
