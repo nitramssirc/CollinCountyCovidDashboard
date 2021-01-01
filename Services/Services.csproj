@@ -13,6 +13,7 @@
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_ICUBedsAvailable.csv" />
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalAvailableBeds.csv" />
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalHospitalCapacity.csv" />
+    <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalOccupiedBeds.csv" />
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalStaffedInpatient.csv" />
     <None Remove="StateOfTexas\Data\CumulativeTestsOverTimeByCounty.csv" />
     <None Remove="StateOfTexas\Data\TexasCOVID19FatalityCountDatabyCounty.csv" />
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalOccupiedBeds.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_Covid19ICU.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_Covid19GeneralBeds.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv" />
