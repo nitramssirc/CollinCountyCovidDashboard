@@ -24,6 +24,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
 
         #region Fields
 
+        bool _isHandlingEvent;
         LineChart<int> _lineChart;
         NumDaysSlider _numDaysSlider;
 
@@ -96,9 +97,12 @@ namespace CollinCountyCovidDashboard.Client.Pages
 
         private async Task OnNumDaysChanged()
         {
+            if (_isHandlingEvent) return;
+            _isHandlingEvent = true;
             NumDays = _numDaysSlider.NumDays;
             await LoadChartData();
             StateHasChanged();
+            _isHandlingEvent = false;
         }
 
         #endregion
@@ -116,9 +120,9 @@ namespace CollinCountyCovidDashboard.Client.Pages
             await _lineChart.Clear();
             await _lineChart.AddLabelsDatasetsAndUpdate(
                     GetDateLabels(queryResults),
-                    GetTotalBedsDataSet(queryResults),
+                    GetCovidOccupiedBedsDataSet(queryResults),
                     GetOcuppiedBedsDataSet(queryResults),
-                    GetCovidOccupiedBedsDataSet(queryResults)
+                    GetTotalBedsDataSet(queryResults)
             );
         }
 
@@ -127,7 +131,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
             return new LineChartDataset<int>
             {
                 Data = queryResults.Select(r => r.CovidOccupied).ToList(),
-                BackgroundColor = new List<string> { ChartColor.FromRgba(255, 0, 0, 0.2f) },
+                BackgroundColor = new List<string> { ChartColor.FromRgba(255, 0, 0, 0.5f) },
                 BorderColor = new List<string> { ChartColor.FromRgba(255, 0, 0, 1f) },
                 Fill = true,
                 SteppedLine = false,
@@ -143,7 +147,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
             return new LineChartDataset<int>
             {
                 Data = queryResults.Select(r => r.Occupied).ToList(),
-                BackgroundColor = new List<string> { ChartColor.FromRgba(255, 255, 0, 0.2f) },
+                BackgroundColor = new List<string> { ChartColor.FromRgba(255, 255, 0, 0.5f) },
                 BorderColor = new List<string> { ChartColor.FromRgba(255, 255, 0, 1f) },
                 Fill = true,
                 SteppedLine = false,
@@ -159,7 +163,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
             return new LineChartDataset<int>
             {
                 Data = queryResults.Select(r => r.Total).ToList(),
-                BackgroundColor = new List<string> { ChartColor.FromRgba(0, 255, 0, 0.2f) },
+                BackgroundColor = new List<string> { ChartColor.FromRgba(0, 255, 0, 0.5f) },
                 BorderColor = new List<string> { ChartColor.FromRgba(0, 255, 0, 1f) },
                 Fill = true,
                 SteppedLine = false,

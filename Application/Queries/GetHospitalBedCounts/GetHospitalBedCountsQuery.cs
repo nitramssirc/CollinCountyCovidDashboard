@@ -33,7 +33,10 @@ namespace Application.Queries.GetHospitalBedCounts
             var response = await _stateOfTexasClient.GetHospitalBedRecords(numDays);
             if (!response.WasSuccessful) { return new QueryResult<HospitalBedModel[]>(response.Error); }
 
-            var returnData = response.Response.Select(r => new HospitalBedModel(r.Date, r.Capacity, r.TotalOccupied, r.CovidOccupied)).ToArray();
+            var returnData = response.Response
+                .Select(r => new HospitalBedModel(r.Date, r.Capacity, r.TotalOccupied, r.CovidOccupied))
+                .OrderBy(r=> r.Date)
+                .ToArray();
             return new QueryResult<HospitalBedModel[]>(returnData);
         }
 

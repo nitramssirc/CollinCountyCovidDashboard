@@ -23,10 +23,11 @@ namespace CollinCountyCovidDashboard.Client.Pages
 
         #endregion
 
-        #region View References
+        #region Fields
 
         TrendChart<int> _trendChart;
         NumDaysSlider _numDaysSlider;
+        bool _isHandlingEvent;
 
         #endregion
 
@@ -57,9 +58,12 @@ namespace CollinCountyCovidDashboard.Client.Pages
 
         private async Task OnNumDaysChanged()
         {
+            if (_isHandlingEvent) return;
+            _isHandlingEvent = true;
             NumDays = _numDaysSlider.NumDays;
             await LoadChartData();
             StateHasChanged();
+            _isHandlingEvent = false;
         }
 
         #endregion
