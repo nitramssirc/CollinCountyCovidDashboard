@@ -33,8 +33,9 @@ namespace DataUpdater
             yield return new NewCasesUpdater();
             yield return new TestDataUpdater();
             yield return new FatalitiesUpdater();
-            yield return new CovidHospitalizationsUpdater();
-            yield return new CovidPctCapacityUpdater();
+            yield return new Hospitalizations_CovidHospitalizationsUpdater();
+            yield return new Hospitalizations_CovidPctCapacityUpdater();
+            yield return new Hospitalizations_TotalHospitalCapacityUpdater();
         }
     }
 }
