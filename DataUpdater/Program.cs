@@ -37,6 +37,7 @@ namespace DataUpdater
             yield return new Hospitalizations_CovidPctCapacityUpdater();
             yield return new Hospitalizations_TotalHospitalCapacityUpdater();
             yield return new Hospitalizations_TotalAvailableBedsUpdater();
+            yield return new Hospitalizations_ICUBedsAvailableUpdater();
         }
     }
 }
