@@ -1,5 +1,4 @@
-﻿using Application.BaseModels;
-using Application.Queries.GetHospitalBedCounts;
+﻿using Application.Queries.GetICUBedCounts;
 
 using Blazorise.Charts;
 
@@ -7,18 +6,17 @@ using CollinCountyCovidDashboard.Client.Shared;
 
 using Microsoft.AspNetCore.Components;
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace CollinCountyCovidDashboard.Client.Pages
 {
-    public partial class HospitalBedsTrend
+    public partial class ICUBedsTrend
     {
         #region Dependencies
 
-        [Inject] IGetHospitalBedCountsQuery _getHospitalBedCountsQuery { get; set; }
+        [Inject] IGetICUBedCountsQuery _getICUBedCountsQuery { get; set; }
 
         #endregion
 
@@ -49,7 +47,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
                         ticks=new
                         {
                             fontColor = "#fff",
-                            min=0
+                            min = 0
                         }
                     }
         },
@@ -112,11 +110,11 @@ namespace CollinCountyCovidDashboard.Client.Pages
 
         private async Task LoadChartData()
         {
-            var queryResults = await _getHospitalBedCountsQuery.Execute(NumDays);
+            var queryResults = await _getICUBedCountsQuery.Execute(NumDays);
             await SetChartData(queryResults.Result);
         }
 
-        private async Task SetChartData(HospitalBedModel[] queryResults)
+        private async Task SetChartData(ICUBedModel[] queryResults)
         {
             await _lineChart.Clear();
             await _lineChart.AddLabelsDatasetsAndUpdate(
@@ -127,7 +125,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
             );
         }
 
-        private LineChartDataset<int> GetCovidOccupiedBedsDataSet(HospitalBedModel[] queryResults)
+        private LineChartDataset<int> GetCovidOccupiedBedsDataSet(ICUBedModel[] queryResults)
         {
             return new LineChartDataset<int>
             {
@@ -143,7 +141,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
             };
         }
 
-        private LineChartDataset<int> GetOcuppiedBedsDataSet(HospitalBedModel[] queryResults)
+        private LineChartDataset<int> GetOcuppiedBedsDataSet(ICUBedModel[] queryResults)
         {
             return new LineChartDataset<int>
             {
@@ -159,7 +157,7 @@ namespace CollinCountyCovidDashboard.Client.Pages
             };
         }
 
-        private LineChartDataset<int> GetTotalBedsDataSet(HospitalBedModel[] queryResults)
+        private LineChartDataset<int> GetTotalBedsDataSet(ICUBedModel[] queryResults)
         {
             return new LineChartDataset<int>
             {
@@ -175,12 +173,10 @@ namespace CollinCountyCovidDashboard.Client.Pages
             };
         }
 
-        private IReadOnlyCollection<string> GetDateLabels(HospitalBedModel[] queryResults)
+        private IReadOnlyCollection<string> GetDateLabels(ICUBedModel[] queryResults)
         {
             return queryResults.Select(d => d.Date.ToShortDateString()).ToArray();
         }
-
-
 
         #endregion
 

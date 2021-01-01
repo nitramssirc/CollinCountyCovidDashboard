@@ -19,5 +19,8 @@ namespace Services.StateOfTexas.Client
         Task<ServiceResponse<DailyDeathRecord[]>> GetLatestDeathCount(int numDays);
 
         Task<ServiceResponse<DailyHospitalBedRecord[]>> GetHospitalBedRecords(int numDays);
+    
+        Task<ServiceResponse<DailyHospitalBedRecord[]>> GetICUBedRecords(int numDays);
+
     }
 }
