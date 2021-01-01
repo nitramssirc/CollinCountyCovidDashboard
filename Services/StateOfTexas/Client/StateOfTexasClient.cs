@@ -84,7 +84,7 @@ namespace Services.StateOfTexas.Client
                         var date = testCaseData.Item1;
                         var tests = testCaseData.Item2;
                         var casesOnLatestTestDate = newCases.FirstOrDefault(nc => nc.Date == date);
-                        var positivityRate = tests == 0 ? 0 : (decimal)casesOnLatestTestDate.NewCases / tests;
+                        var positivityRate = tests == 0 || casesOnLatestTestDate == null ? 0 : (decimal)casesOnLatestTestDate.NewCases / tests;
                         returnList.Add(new DailyTestData(date, tests, positivityRate));
                     }
                     return new ServiceResponse<DailyTestData[]>(returnList.ToArray());
