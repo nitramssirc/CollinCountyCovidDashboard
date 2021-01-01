@@ -317,9 +317,9 @@ namespace Services.StateOfTexas.Client
 
             var splitDate = dateString.Split("-");
             var hasYear = splitDate.Length == 3;
-            var year = hasYear ? int.Parse(splitDate[0]) : 2020;
             var month = int.Parse(splitDate[hasYear ? 1 : 0]);
             var day = int.Parse(splitDate[hasYear ? 2 : 1]);
+            var year = hasYear ? int.Parse(splitDate[0]) : month < 3 ? 2021 : 2020;
 
             return new DateTime(year, month, day);
         }
@@ -342,9 +342,9 @@ namespace Services.StateOfTexas.Client
 
             var splitDate = dateString.Split("-");
             var hasYear = splitDate.Length == 3;
-            var year = hasYear ? int.Parse(splitDate[0]) : 2020;
             var month = int.Parse(splitDate[hasYear ? 1 : 0]);
             var day = int.Parse(splitDate[hasYear ? 2 : 1]);
+            var year = hasYear ? int.Parse(splitDate[0]) : month < 3 ? 2021 : 2020;
 
             return new DateTime(year, month, day);
         }
