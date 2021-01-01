@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitalizationsPct.csv" />
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv" />
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidPctCapacity.csv" />
     <None Remove="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_ICUBedsAvailable.csv" />
@@ -19,6 +20,7 @@
   <ItemGroup>
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_ICUBedsAvailable.csv" />
+    <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_CovidHospitalizationsPct.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalStaffedInpatient.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalHospitalCapacity.csv" />
     <EmbeddedResource Include="StateOfTexas\Data\CombinedHospitalDataoverTimebyTSARegion_TotalAvailableBeds.csv" />
