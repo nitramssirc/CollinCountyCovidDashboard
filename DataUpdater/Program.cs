@@ -41,6 +41,7 @@ namespace DataUpdater
             yield return new Hospitalizations_TotalStaffedInpatientUpdater();
             yield return new Hospitalizations_CovidHospitalizationsPctUpdater();
             yield return new Hospitalizations_Covid19GeneralBedsUpdater();
+            yield return new Hospitalizations_Covid19ICUUpdater();
         }
     }
 }
