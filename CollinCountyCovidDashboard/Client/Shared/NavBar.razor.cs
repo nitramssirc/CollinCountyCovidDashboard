@@ -16,6 +16,7 @@ namespace CollinCountyCovidDashboard.Client.Shared
         NewCaseTrends,
         NewDeathsTrend,
         PositivityRateTrend,
+        HospitalBedsTrend,
         Sources
     }
 
@@ -63,6 +64,8 @@ namespace CollinCountyCovidDashboard.Client.Shared
                     return "New Deaths Trend";
                 case NavPageType.PositivityRateTrend:
                     return "Positivity Rate Trend";
+                case NavPageType.HospitalBedsTrend:
+                    return "Hospital Beds Trend";
                 default:
                     return curPage.ToString();
             }

@@ -141,6 +141,28 @@ namespace Services.StateOfTexas.Client
             );
         }
 
+        public async Task<ServiceResponse<DailyHospitalBedRecord[]>> GetHospitalBedRecords(int numDays)
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    var availableBedsTable = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_TotalAvailableBeds.csv");
+                    var occupiedBedsTable = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_TotalOccupiedBeds.csv");
+                    var covidHospitalizations = LoadCSVDataAsDataTable("CombinedHospitalDataoverTimebyTSARegion_CovidHospitialization.csv");
+
+                    var bedRecords = ConstructHospitalBedRecords(availableBedsTable, occupiedBedsTable, covidHospitalizations);
+
+                    return new ServiceResponse<DailyHospitalBedRecord[]>(bedRecords.OrderByDescending(r => r.Date).Take(numDays).ToArray());
+                }
+                catch (Exception ex)
+                {
+                    return new ServiceResponse<DailyHospitalBedRecord[]>(
+                        "An error occurred loading the hospital bed records from the State of Texas", ex);
+                }
+            });
+        }
+
         #endregion
 
         #region Private Method
@@ -270,6 +292,25 @@ namespace Services.StateOfTexas.Client
             return returnList;
         }
 
+        private List<DailyHospitalBedRecord> ConstructHospitalBedRecords(DataTable availableBedsTable, DataTable occupiedBedsTable, DataTable covidHospitalizations)
+        {
+            var columnCount = covidHospitalizations.Columns.Count;
+            var returnList = new List<DailyHospitalBedRecord>();
+
+            for (int colIndex = 2; colIndex < columnCount; colIndex++)
+            {
+                var date = ParseHospitalDataDate(covidHospitalizations.Rows[0][colIndex].ToString());
+                var covidHospitalizationCount = ParseHospitalizationCount(covidHospitalizations.Rows[1][colIndex].ToString());
+                var availableBedCount = ParseHospitalizationCount(availableBedsTable.Rows[1][colIndex].ToString());
+                var occupiedBedCount = ParseHospitalizationCount(occupiedBedsTable.Rows[1][colIndex].ToString());
+
+                returnList.Add(new DailyHospitalBedRecord(date, availableBedCount, occupiedBedCount, covidHospitalizationCount));
+            }
+
+
+            return returnList;
+        }
+
         private DateTime ParseNewCaseDate(string dateString)
         {
             dateString = dateString.Replace("New Cases ", string.Empty);
@@ -332,11 +373,11 @@ namespace Services.StateOfTexas.Client
                 : decimal.Parse(dataValue);
         }
 
-
         private int ParseDeathCount(string deathCountString)
         {
             return int.Parse(deathCountString);
         }
+
 
         #endregion
     }
