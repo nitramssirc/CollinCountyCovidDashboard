@@ -96,7 +96,7 @@ namespace CollinCountyCovidDashboard.Client.Shared
                 Fill = true,
                 SteppedLine = true,
                 Label = DailyRecordLabel,
-                PointRadius = 4,
+                PointRadius = 2,
                 PointBorderColor = Enumerable.Repeat("#ff6384", records.Length).ToList(),
                 PointBackgroundColor = Enumerable.Repeat("#ff6384", records.Length).ToList()
             };
@@ -109,7 +109,7 @@ namespace CollinCountyCovidDashboard.Client.Shared
                 Data = result.Select(r => r.SevenDayAvg).ToList(),
                 BorderColor = new List<string> { ChartColor.FromRgba(255, 255, 255, 1f) },
                 Fill = false,
-                PointRadius = 4,
+                PointRadius = 2,
                 BorderDash = new List<int> { },
                 SteppedLine = false,
                 Label = "7 Day Average",
