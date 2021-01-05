@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -44,6 +42,7 @@ namespace DataUpdater
             yield return new Hospitalizations_Covid19ICUUpdater();
             yield return new Hospitalizations_TotalOccupiedBedsUpdater();
             yield return new Hospitalizations_ICUBedsOccupiedUpdater();
+            yield return new VaccineDataUpdater();
         }
     }
 }
