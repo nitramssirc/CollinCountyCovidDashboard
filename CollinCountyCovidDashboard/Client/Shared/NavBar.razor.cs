@@ -9,19 +9,6 @@ using Microsoft.AspNetCore.Components;
 namespace CollinCountyCovidDashboard.Client.Shared
 {
 
-    public enum NavPageType
-    {
-        Latest,
-        SevenDayAvg,
-        NewCaseTrends,
-        NewDeathsTrend,
-        PositivityRateTrend,
-        HospitalBedsTrend,
-        ICUBedsTrend,
-        Sources
-    }
-
-
     public partial class NavBar
     {
         [Inject] public NavigationManager _navigationManager { get; set; }

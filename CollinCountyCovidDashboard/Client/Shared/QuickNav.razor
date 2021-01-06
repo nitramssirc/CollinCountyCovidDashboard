@@ -1,0 +1,12 @@
+﻿<div class="quickNavButtonContainer" @onclick="MenuButtonClicked">
+    <Icon Name="IconName.Bars" />
+</div>
+<div class="quickNav @MenuAnimationClass">
+    <div class="clickAwayRegion" @onclick="ClickAwayRegionClicked"></div>
+    <ul>
+        @foreach(var navPageType in Enum.GetValues(typeof(NavPageType)).Cast<NavPageType>())
+        {
+            <li><NavLink href="@navPageType" Match="NavLinkMatch.All" @onclick="NavLinkClicked">@navPageType.Description()</NavLink></li>
+        }
+    </ul>
+</div>

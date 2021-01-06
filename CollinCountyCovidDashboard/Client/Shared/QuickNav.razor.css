@@ -1,0 +1,96 @@
+﻿@keyframes menuSlideOut {
+    from {
+        right: -50%;
+        box-shadow: 0 0 0 black;
+    }
+
+    to {
+        right: 0%;
+        box-shadow: -10px 0 10px black;
+    }
+}
+
+@keyframes menuSlideIn {
+    to {
+        right: -50%;
+        box-shadow: 0 0 0 black;
+    }
+
+    from {
+        right: 0%;
+        box-shadow: -10px 0 10px black;
+    }
+}
+
+.quickNavButtonContainer {
+    right: 10px;
+    position: absolute;
+    font-size: 2vmax;
+}
+
+.quickNav {
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    right: -50%;
+    top: 0px;
+    background: #8993a7;
+    z-index: 1;
+    box-shadow: 0 0 0 black;
+    animation-duration: .5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+    .quickNav.slideOut {
+        animation-name: menuSlideOut;
+    }
+
+        .quickNav.slideOut .clickAwayRegion {
+            visibility: visible;
+        }
+
+    .quickNav.slideIn {
+        animation-name: menuSlideIn;
+    }
+
+        .quickNav.slideIn .clickAwayRegion {
+            visibility: hidden;
+        }
+
+    .quickNav ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .quickNav li {
+        border-color: black;
+        border-width: 0px 0px 1px 0px;
+        border-style: solid;
+        padding: 10px;
+    }
+
+    .quickNav ::deep a {
+        color: white;
+    }
+
+        .quickNav ::deep a.active {
+            color: gold;
+        }
+
+        .quickNav ::deep a.hover {
+            color: white;
+            text-decoration: none;
+        }
+
+
+
+.clickAwayRegion {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+}
