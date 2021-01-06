@@ -41,8 +41,8 @@ namespace Services.StateOfTexas.Models
             var sb = new StringBuilder();
             sb.AppendLine($"    VaccineDosesDistributed:            {VaccineDosesDistributed}");
             sb.AppendLine($"    VaccineDosesAdministered:           {VaccineDosesAdministered}");
-            sb.AppendLine($"    PeopleVaccinatedWithAtLeastOneDose: {VaccineDosesAdministered}");
-            sb.AppendLine($"    PeopleFullyVaccinated:              {VaccineDosesAdministered}");
+            sb.AppendLine($"    PeopleVaccinatedWithAtLeastOneDose: {PeopleVaccinatedWithAtLeastOneDose}");
+            sb.AppendLine($"    PeopleFullyVaccinated:              {PeopleFullyVaccinated}");
             sb.AppendLine($"    Population16Plus:                   {Population16Plus}");
             sb.AppendLine($"    Population65Plus:                   {Population65Plus}");
             sb.AppendLine($"    Phase1AHeathcareWorkers:            {Phase1AHeathcareWorkers}");
