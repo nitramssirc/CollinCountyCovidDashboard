@@ -15,6 +15,8 @@ namespace Services.StateOfTexas.Models
         public int Phase1AHeathcareWorkers { get; set; }
         public int Phase1ALongTermCareResidents { get; set; }
 
+        public int Phase1BAnyMedicalCondition { get; set; }
+
         protected bool Equals(DailyVaccineDataRecord other)
         {
             return
@@ -25,7 +27,9 @@ namespace Services.StateOfTexas.Models
                 Population16Plus == other.Population16Plus &&
                 Population65Plus == other.Population65Plus &&
                 Phase1AHeathcareWorkers == other.Phase1AHeathcareWorkers &&
-                Phase1ALongTermCareResidents == other.Phase1ALongTermCareResidents;
+                Phase1ALongTermCareResidents == other.Phase1ALongTermCareResidents &&
+                Phase1BAnyMedicalCondition == other.Phase1BAnyMedicalCondition;
+
         }
 
         public override bool Equals(object obj)
@@ -47,6 +51,7 @@ namespace Services.StateOfTexas.Models
             sb.AppendLine($"    Population65Plus:                   {Population65Plus}");
             sb.AppendLine($"    Phase1AHeathcareWorkers:            {Phase1AHeathcareWorkers}");
             sb.AppendLine($"    Phase1ALongTermCareResidents:       {Phase1ALongTermCareResidents}");
+            sb.AppendLine($"    Phase1BAnyMedicalCondition:         {Phase1BAnyMedicalCondition}");
             return sb.ToString();
         }
 
@@ -62,6 +67,7 @@ namespace Services.StateOfTexas.Models
             hash.Add(Population65Plus);
             hash.Add(Phase1AHeathcareWorkers);
             hash.Add(Phase1ALongTermCareResidents);
+            hash.Add(Phase1BAnyMedicalCondition);
             return hash.ToHashCode();
         }
     }
