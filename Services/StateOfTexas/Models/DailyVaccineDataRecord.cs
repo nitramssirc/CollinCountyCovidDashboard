@@ -6,7 +6,7 @@ namespace Services.StateOfTexas.Models
     public class DailyVaccineDataRecord
     {
         public DateTime Date { get; set; }
-        public int VaccineDosesDistributed { get; set; }
+        public int VaccineDoesAllocated { get; set; }
         public int VaccineDosesAdministered { get; set; }
         public int PeopleVaccinatedWithAtLeastOneDose { get; set; }
         public int PeopleFullyVaccinated { get; set; }
@@ -20,7 +20,7 @@ namespace Services.StateOfTexas.Models
         protected bool Equals(DailyVaccineDataRecord other)
         {
             return
-                VaccineDosesDistributed == other.VaccineDosesDistributed &&
+                VaccineDoesAllocated == other.VaccineDoesAllocated &&
                 VaccineDosesAdministered == other.VaccineDosesAdministered &&
                 PeopleVaccinatedWithAtLeastOneDose == other.PeopleVaccinatedWithAtLeastOneDose &&
                 PeopleFullyVaccinated == other.PeopleFullyVaccinated &&
@@ -43,7 +43,7 @@ namespace Services.StateOfTexas.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"    VaccineDosesDistributed:            {VaccineDosesDistributed}");
+            sb.AppendLine($"    VaccineDoesAllocated:               {VaccineDoesAllocated}");
             sb.AppendLine($"    VaccineDosesAdministered:           {VaccineDosesAdministered}");
             sb.AppendLine($"    PeopleVaccinatedWithAtLeastOneDose: {PeopleVaccinatedWithAtLeastOneDose}");
             sb.AppendLine($"    PeopleFullyVaccinated:              {PeopleFullyVaccinated}");
@@ -59,7 +59,7 @@ namespace Services.StateOfTexas.Models
         {
             HashCode hash = new HashCode();
             hash.Add(Date);
-            hash.Add(VaccineDosesDistributed);
+            hash.Add(VaccineDoesAllocated);
             hash.Add(VaccineDosesAdministered);
             hash.Add(PeopleVaccinatedWithAtLeastOneDose);
             hash.Add(PeopleFullyVaccinated);

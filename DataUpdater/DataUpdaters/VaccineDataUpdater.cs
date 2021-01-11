@@ -73,15 +73,15 @@ namespace DataUpdater.DataUpdaters
             return new DailyVaccineDataRecord()
             {
                 Date = DateTime.Today,
-                VaccineDosesDistributed = 0,
-                VaccineDosesAdministered = int.Parse(row[2].ToString()),
-                PeopleVaccinatedWithAtLeastOneDose = int.Parse(row[3].ToString()),
-                PeopleFullyVaccinated = int.Parse(row[4].ToString()),
-                Population16Plus = int.Parse(row[5].ToString()),
-                Population65Plus = int.Parse(row[6].ToString()),
-                Phase1AHeathcareWorkers = int.Parse(row[7].ToString()),
-                Phase1ALongTermCareResidents = int.Parse(row[8].ToString()),
-                Phase1BAnyMedicalCondition = int.Parse(row[9].ToString())
+                VaccineDoesAllocated = int.Parse(row[2].ToString()),
+                VaccineDosesAdministered = int.Parse(row[3].ToString()),
+                PeopleVaccinatedWithAtLeastOneDose = int.Parse(row[4].ToString()),
+                PeopleFullyVaccinated = int.Parse(row[5].ToString()),
+                Population16Plus = int.Parse(row[6].ToString()),
+                Population65Plus = int.Parse(row[7].ToString()),
+                Phase1AHeathcareWorkers = int.Parse(row[8].ToString()),
+                Phase1ALongTermCareResidents = int.Parse(row[9].ToString()),
+                Phase1BAnyMedicalCondition = int.Parse(row[10].ToString())
             };
         }
 
