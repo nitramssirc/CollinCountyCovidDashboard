@@ -28,21 +28,22 @@ namespace DataUpdater
 
         private static IEnumerable<IDataUpdater> GetUpdaters()
         {
-            yield return new NewCasesUpdater();
-            yield return new TestDataUpdater();
-            yield return new FatalitiesUpdater();
-            yield return new Hospitalizations_CovidHospitalizationsUpdater();
-            yield return new Hospitalizations_CovidPctCapacityUpdater();
-            yield return new Hospitalizations_TotalHospitalCapacityUpdater();
-            yield return new Hospitalizations_TotalAvailableBedsUpdater();
-            yield return new Hospitalizations_ICUBedsAvailableUpdater();
-            yield return new Hospitalizations_TotalStaffedInpatientUpdater();
-            yield return new Hospitalizations_CovidHospitalizationsPctUpdater();
-            yield return new Hospitalizations_Covid19GeneralBedsUpdater();
-            yield return new Hospitalizations_Covid19ICUUpdater();
-            yield return new Hospitalizations_TotalOccupiedBedsUpdater();
-            yield return new Hospitalizations_ICUBedsOccupiedUpdater();
-            yield return new VaccineDataUpdater();
+            //yield return new NewCasesUpdater();
+            //yield return new TestDataUpdater();
+            //yield return new FatalitiesUpdater();
+            //yield return new Hospitalizations_CovidHospitalizationsUpdater();
+            //yield return new Hospitalizations_CovidPctCapacityUpdater();
+            //yield return new Hospitalizations_TotalHospitalCapacityUpdater();
+            //yield return new Hospitalizations_TotalAvailableBedsUpdater();
+            //yield return new Hospitalizations_ICUBedsAvailableUpdater();
+            //yield return new Hospitalizations_TotalStaffedInpatientUpdater();
+            //yield return new Hospitalizations_CovidHospitalizationsPctUpdater();
+            //yield return new Hospitalizations_Covid19GeneralBedsUpdater();
+            //yield return new Hospitalizations_Covid19ICUUpdater();
+            //yield return new Hospitalizations_TotalOccupiedBedsUpdater();
+            //yield return new Hospitalizations_ICUBedsOccupiedUpdater();
+            //yield return new VaccineDataUpdater();
+            yield return new VaccineProviderDataUpdater();
         }
     }
 }
