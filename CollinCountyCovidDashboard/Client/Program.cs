@@ -6,6 +6,7 @@ using Application.Queries.GetICUBedCounts;
 using Application.Queries.GetNewCases;
 using Application.Queries.GetPositivityRate;
 using Application.Queries.GetToday;
+using Application.Queries.GetVaccineData;
 
 using Blazorise;
 using Blazorise.Bootstrap;
@@ -47,6 +48,7 @@ namespace CollinCountyCovidDashboard.Client
             builder.Services.AddScoped(typeof(IGetPositivityRateQuery), typeof(GetPositivityRateQuery));
             builder.Services.AddScoped(typeof(IGetHospitalBedCountsQuery), typeof(GetHospitalBedCountsQuery));
             builder.Services.AddScoped(typeof(IGetICUBedCountsQuery), typeof(GetICUBedCountsQuery));
+            builder.Services.AddScoped(typeof(IGetVaccineDataQuery), typeof(GetVaccineDataQuery));
 
             var codePagesEncodingProvider = CodePagesEncodingProvider.Instance;
             Encoding.RegisterProvider(codePagesEncodingProvider);

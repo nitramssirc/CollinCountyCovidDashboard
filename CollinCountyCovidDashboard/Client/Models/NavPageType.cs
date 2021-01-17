@@ -4,6 +4,7 @@ public enum NavPageType
 {
     Latest,
     SevenDayAvg,
+    VaccineInfo,
     NewCaseTrends,
     NewDeathsTrend,
     PositivityRateTrend,
@@ -12,7 +13,7 @@ public enum NavPageType
     Sources
 }
 
-public static class NavePageTypeExt
+public static class NavPageTypeExt
 {
     public static string Description(this NavPageType navPageType)
     {
@@ -20,6 +21,7 @@ public static class NavePageTypeExt
         {
             NavPageType.SevenDayAvg => "7 Day Averages",
             NavPageType.NewCaseTrends => "New Cases Trend",
+            NavPageType.VaccineInfo => "Vaccine Info",
             NavPageType.NewDeathsTrend => "New Deaths Trend",
             NavPageType.PositivityRateTrend => "Positivity Rate Trend",
             NavPageType.HospitalBedsTrend => "Hospital Beds Trend",

@@ -1,0 +1,48 @@
+﻿@page "/VaccineInfo"
+
+@if (IsLoading)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
+else if (Error != null)
+{
+    <div class="error">@Error</div>
+}
+else
+{
+    var administeredFontSize = GetValueFontSize(Model.NumAdministeredToday);
+    var allocatedFontSize = GetValueFontSize(Model.AllocatedToday);
+    var peopleWith1DoesFontSize = GetValueFontSize(Model.PeopleGiven1Does);
+    var peopleFullyVaccinatedFontSize = GetValueFontSize(Model.PeopleGivenFullDoes);
+    <div class="index-grid-container">
+        <div class="content-box" style="grid-area:New-Cases;">
+            <div class="header"><div>Vaccines Administered</div><div class="subheader">(Today)</div></div>
+            <div class="primary-value" style="font-size:@administeredFontSize">@Model.NumAdministeredToday</div>
+            <div class="update-date"><span>Last Updated: @Model.UpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">Total: @Model.TotalAdministered</div>
+        </div>
+        <div class="content-box" style="grid-area:Tests;">
+            <div class="header"><div>Vaccines Allocated</div><div class="subheader">(Today)</div></div>
+            <div class="primary-value" style="font-size:@allocatedFontSize">@Model.AllocatedToday</div>
+            <div class="update-date"><span>Last Updated: @Model.UpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">Total: @Model.TotalAllocated</div>
+        </div>
+        <div class="content-box" style="grid-area:Hospitalizations;">
+            <div class="header"><div>People Given At Least 1 Dose</div></div>
+            <div class="primary-value" style="font-size:@peopleWith1DoesFontSize">@Model.PeopleGiven1Does</div>
+            <div class="update-date"><span>Last Update: @Model.UpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">
+                % Of Eligible Population:
+                @Model.PctOfEligibleGiven1Does.ToString("P2")
+            </div>
+        </div>
+        <div class="content-box" style="grid-area:Deaths;">
+            <div class="header"><div>People Given Full Dose</div></div>
+            <div class="primary-value" style="font-size:@peopleFullyVaccinatedFontSize">@Model.PeopleGivenFullDoes</div>
+            <div class="update-date"><span>Last Update: @Model.UpdateDate.ToShortDateString()</span></div>
+            <div class="footer-value">% Of Eligible Population: @Model.PctOfEligibleGivenFullDoes.ToString("P2")</div>
+        </div>
+    </div>
+}

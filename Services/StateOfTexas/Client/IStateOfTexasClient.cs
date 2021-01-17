@@ -22,5 +22,6 @@ namespace Services.StateOfTexas.Client
     
         Task<ServiceResponse<DailyHospitalBedRecord[]>> GetICUBedRecords(int numDays);
 
+        Task<ServiceResponse<DailyVaccineDataRecord[]>> GetVaccineRecords(int numDays);
     }
 }

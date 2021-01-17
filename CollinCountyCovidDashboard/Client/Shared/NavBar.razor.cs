@@ -41,24 +41,7 @@ namespace CollinCountyCovidDashboard.Client.Shared
 
         private string GetCurrentPageName()
         {
-            var curPage = CurrentPage;
-            switch (curPage)
-            {
-                case NavPageType.SevenDayAvg:
-                    return "7 Day Averages";
-                case NavPageType.NewCaseTrends:
-                    return "New Cases Trend";
-                case NavPageType.NewDeathsTrend:
-                    return "New Deaths Trend";
-                case NavPageType.PositivityRateTrend:
-                    return "Positivity Rate Trend";
-                case NavPageType.HospitalBedsTrend:
-                    return "Hospital Beds Trend";
-                case NavPageType.ICUBedsTrend:
-                    return "ICU Beds Trend";
-                default:
-                    return curPage.ToString();
-            }
+            return CurrentPage.Description();
         }
 
         private NavPageType GetNextPage()

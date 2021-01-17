@@ -185,6 +185,22 @@ namespace Services.StateOfTexas.Client
             });
         }
 
+        public async Task<ServiceResponse<DailyVaccineDataRecord[]>> GetVaccineRecords(int numDays)
+        {
+            return await Task.Run(() =>
+            {
+                try
+                {
+                    var vaccineRecords = LoadCSVDataAsType<DailyVaccineDataRecord>("COVID19VaccineDataByCounty.csv");
+                    return new ServiceResponse<DailyVaccineDataRecord[]>(vaccineRecords.OrderByDescending(r => r.Date).Take(numDays).ToArray());
+                }
+                catch (Exception ex)
+                {
+                    return new ServiceResponse<DailyVaccineDataRecord[]>(
+                        "An error occurred loading the Vaccine Daily records from the State of Texas", ex);
+                }
+            });
+        }
 
         #endregion
 
@@ -211,6 +227,14 @@ namespace Services.StateOfTexas.Client
                     data.Rows.Add(row);
                 }
             return data;
+        }
+
+        private IEnumerable<T> LoadCSVDataAsType<T>(string csvFile)
+        {
+            using var reader = new StreamReader(GetManifestDataFileStream(csvFile));
+            using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var records = csv.GetRecords<T>().ToList();
+            return records;
         }
 
         private DataSet LoadExcelDataAsDataSet(string excelFile)
