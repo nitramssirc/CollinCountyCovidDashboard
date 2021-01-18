@@ -388,9 +388,31 @@ namespace Services.StateOfTexas.Client
 
             var splitDate = dateString.Split("-");
             var hasYear = splitDate.Length == 3;
-            var month = int.Parse(splitDate[hasYear ? 1 : 0]);
-            var day = int.Parse(splitDate[hasYear ? 2 : 1]);
-            var year = hasYear ? int.Parse(splitDate[0]) : month < 3 ? 2021 : 2020;
+
+            int month, day, year;
+            if (!hasYear)
+            {
+                month = int.Parse(splitDate[0]);
+                day = int.Parse(splitDate[1]);
+                year = month < 3 ? 2021 : 2020;
+                return new DateTime(year, month, day);
+            }
+            else
+            {
+                var split1 = int.Parse(splitDate[0]);
+                if(split1 > 12)
+                {
+                    year = int.Parse(splitDate[0]);
+                    month = int.Parse(splitDate[1]);
+                    day = int.Parse(splitDate[2]);
+                }
+                else
+                {
+                    year = int.Parse(splitDate[2]);
+                    month = int.Parse(splitDate[0]);
+                    day = int.Parse(splitDate[1]);
+                }
+            }
 
             return new DateTime(year, month, day);
         }
