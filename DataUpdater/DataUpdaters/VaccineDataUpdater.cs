@@ -69,7 +69,7 @@ namespace DataUpdater.DataUpdaters
         private DailyVaccineDataRecord ConstructVaccineDataRecordFromXlsxDataSet(DataSet dataSet)
         {
             var table = dataSet.Tables[1];
-            var row = table.Rows[44];
+            var row = table.Rows[45];
             return new DailyVaccineDataRecord()
             {
                 Date = DateTime.Today,
