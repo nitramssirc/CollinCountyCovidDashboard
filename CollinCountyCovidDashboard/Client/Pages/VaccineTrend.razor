@@ -1,0 +1,13 @@
+﻿@page "/VaccineTrend"
+
+<div class="souces-container">
+    <div class="content-box">
+        <div class="header">Vaccines<div class="subheader">(Last @NumDays Days)</div></div>
+        <NumDaysSlider @ref="_numDaysSlider" NumDaysChanged="@OnNumDaysChanged" />
+        <div class="chartContainer">
+            <LineChart @ref="_lineChart" TItem="int" OptionsObject="@_chartOptions">
+            </LineChart>
+        </div>
+    </div>
+</div>
+

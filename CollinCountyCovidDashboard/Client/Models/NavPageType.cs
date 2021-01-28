@@ -10,6 +10,7 @@ public enum NavPageType
     PositivityRateTrend,
     HospitalBedsTrend,
     ICUBedsTrend,
+    VaccineTrend,
     Sources
 }
 
@@ -26,6 +27,7 @@ public static class NavPageTypeExt
             NavPageType.PositivityRateTrend => "Positivity Rate Trend",
             NavPageType.HospitalBedsTrend => "Hospital Beds Trend",
             NavPageType.ICUBedsTrend => "ICU Beds Trend",
+            NavPageType.VaccineTrend => "Vaccine Trend",
             _ => navPageType.ToString(),
         };
     }
