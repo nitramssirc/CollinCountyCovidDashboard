@@ -44,8 +44,8 @@ namespace CollinCountyCovidDashboard.Client.Pages
         {
             if (val < 1000) return "10vmax";
             var digitCount = Math.Floor(Math.Log10(val / 1000)) + 1;
-            var fontSize = 10 - digitCount * 3;
-            if (fontSize < 2) return "2vmax";
+            var fontSize = 10 - digitCount * 2;
+            Math.Clamp(fontSize, 2, 10);
             return $"{fontSize}vmax";
         }
 
