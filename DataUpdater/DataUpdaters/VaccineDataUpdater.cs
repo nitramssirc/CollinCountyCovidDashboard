@@ -81,7 +81,8 @@ namespace DataUpdater.DataUpdaters
                 Population65Plus = int.Parse(row[7].ToString()),
                 Phase1AHeathcareWorkers = int.Parse(row[8].ToString()),
                 Phase1ALongTermCareResidents = int.Parse(row[9].ToString()),
-                Phase1BAnyMedicalCondition = int.Parse(row[10].ToString())
+                Phase1BAnyMedicalCondition = int.Parse(row[10].ToString()),
+                EducationAndChildCarePersonnel = int.Parse(row[11].ToString())
             };
         }
 

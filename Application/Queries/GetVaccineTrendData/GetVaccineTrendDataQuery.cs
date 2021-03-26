@@ -42,7 +42,11 @@ namespace Application.Queries.GetVaccineTrendData
 
         private VaccineTrendDataModel ConstructModel(DailyVaccineDataRecord record)
         {
-            int eligiblePopulation = record.Phase1AHeathcareWorkers + record.Phase1ALongTermCareResidents + record.Phase1BAnyMedicalCondition;
+            int eligiblePopulation = 
+                record.Phase1AHeathcareWorkers + 
+                record.Phase1ALongTermCareResidents + 
+                record.Phase1BAnyMedicalCondition + 
+                record.EducationAndChildCarePersonnel;
             return new VaccineTrendDataModel(
                 record.Date,
                 record.VaccineDosesAdministered,

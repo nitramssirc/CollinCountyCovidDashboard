@@ -49,7 +49,11 @@ namespace Application.Queries.GetVaccineData
         {
             var today = vaccineDataRecords[0];
             var yesterday = vaccineDataRecords[1];
-            decimal eligiblePopulation = today.Phase1AHeathcareWorkers + today.Phase1ALongTermCareResidents + today.Phase1BAnyMedicalCondition;
+            decimal eligiblePopulation = 
+                today.Phase1AHeathcareWorkers + 
+                today.Phase1ALongTermCareResidents + 
+                today.Phase1BAnyMedicalCondition +
+                today.EducationAndChildCarePersonnel;
             return new VaccineDataModel(
                 today.Date,
                 today.VaccineDosesAdministered - yesterday.VaccineDosesAdministered,
