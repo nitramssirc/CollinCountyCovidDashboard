@@ -3,6 +3,7 @@
 using Services.StateOfTexas.Client;
 using Services.StateOfTexas.Models;
 
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -42,11 +43,7 @@ namespace Application.Queries.GetVaccineTrendData
 
         private VaccineTrendDataModel ConstructModel(DailyVaccineDataRecord record)
         {
-            int eligiblePopulation = 
-                record.Phase1AHeathcareWorkers + 
-                record.Phase1ALongTermCareResidents + 
-                record.Phase1BAnyMedicalCondition + 
-                record.EducationAndChildCarePersonnel;
+            int eligiblePopulation = GetEligiblePopulation(record);
             return new VaccineTrendDataModel(
                 record.Date,
                 record.VaccineDosesAdministered,
@@ -56,6 +53,21 @@ namespace Application.Queries.GetVaccineTrendData
                 eligiblePopulation
             );
 
+        }
+
+        private int GetEligiblePopulation(DailyVaccineDataRecord record)
+        {
+            if (record.Date < new DateTime(2021, 3, 29))
+            {
+                return record.Phase1AHeathcareWorkers +
+                record.Phase1ALongTermCareResidents +
+                record.Phase1BAnyMedicalCondition +
+                record.EducationAndChildCarePersonnel;
+            }
+            else
+            {
+                return record.Population16Plus;
+            }
         }
 
 

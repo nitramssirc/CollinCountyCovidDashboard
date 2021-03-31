@@ -49,11 +49,8 @@ namespace Application.Queries.GetVaccineData
         {
             var today = vaccineDataRecords[0];
             var yesterday = vaccineDataRecords[1];
-            decimal eligiblePopulation = 
-                today.Phase1AHeathcareWorkers + 
-                today.Phase1ALongTermCareResidents + 
-                today.Phase1BAnyMedicalCondition +
-                today.EducationAndChildCarePersonnel;
+
+            decimal eligiblePopulation = GetEligiblePopulation(today);
             return new VaccineDataModel(
                 today.Date,
                 today.VaccineDosesAdministered - yesterday.VaccineDosesAdministered,
@@ -66,6 +63,21 @@ namespace Application.Queries.GetVaccineData
                 today.PeopleFullyVaccinated / eligiblePopulation
             );
 
+        }
+
+        private int GetEligiblePopulation(DailyVaccineDataRecord record)
+        {
+            if(record.Date < new DateTime(2021, 3, 29))
+            {
+                return record.Phase1AHeathcareWorkers +
+                record.Phase1ALongTermCareResidents +
+                record.Phase1BAnyMedicalCondition +
+                record.EducationAndChildCarePersonnel;
+            }
+            else
+            {
+                return record.Population16Plus;
+            }
         }
 
 
