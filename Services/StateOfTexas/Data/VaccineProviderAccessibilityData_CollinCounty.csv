@@ -1,15 +1,30 @@
 NAME,TYPE,TSA,STREET,CITY,COUNTY,ADDRESS,ZIP,LAST_UPDATE_VAC,LAST_UPDATE_TIME_VAC,PFIZER_AVAILABLE,MODERNA_AVAILABLE,PFIZER_AVAILABLE2,MODERNA_AVAILABLE2,JJ_AVAILABLE,VACCINES_AVAILABLE,VACCINES_AVAILABLE2,PublicPhone,WEBSITE
-Quality Care Pharmacy,Federal Allocation,,,Wylie,Collin,2300 West Fm 544 Suite 130,75098,05/03/2021      ,18:29:27        ,0,200,0,10,102,302,10,,
-CVS PHARMACY 4932,Federal Allocation,,,Plano,Collin,5920 W. Park Blvd.,75093,05/03/2021      ,00:00:00        ,0,100,0,0,0,100,0,,
-Walmart Pharmacy 7178,Federal Allocation,,701 W Princeton Dr,Princeton,Collin,701 W Princeton Dr,75407,05/03/2021      ,00:00:00        ,0,34,0,0,17,51,0,,
-Walmart Pharmacy 6966,Federal Allocation,,3400 Virginia Pkwy,Mckinney,Collin,3400 Virginia Pkwy,75071,05/03/2021      ,00:00:00        ,0,70,0,0,0,70,0,,
-Walmart Pharmacy 3482,Federal Allocation,,,Plano,Collin,425 Coit Rd,75075,05/03/2021      ,00:00:00        ,0,105,0,0,0,105,0,,
-Walmart Pharmacy 2973,Federal Allocation,,115 W Fm 544,Murphy,Collin,115 W Fm 544,75094,05/03/2021      ,00:00:00        ,0,43,0,0,86,129,0,,
-Walmart Pharmacy 2926,Federal Allocation,,6000 Coit Rd,Plano,Collin,6000 Coit Rd,75023,05/03/2021      ,00:00:00        ,0,40,0,0,0,40,0,,
-Walmart Pharmacy 2918,Federal Allocation,,730 W Exchange Pkwy,Allen,Collin,730 W Exchange Pkwy,75013,05/03/2021      ,00:00:00        ,0,0,0,0,650,650,0,,
-Walmart Pharmacy 2086,Federal Allocation,,1700 Dallas Pkwy,Plano,Collin,1700 Dallas Pkwy,75093,05/03/2021      ,00:00:00        ,0,41,0,0,83,124,0,,
-Walmart Pharmacy 202,Federal Allocation,,16066 State Hwy 121,Frisco,Collin,16066 State Hwy 121,75035,05/03/2021      ,00:00:00        ,0,0,0,0,641,641,0,,
-Walmart Pharmacy  2463,Federal Allocation,,355 Stonebrook Pkwy,Frisco,Collin,355 Stonebrook Pkwy,75034,05/03/2021      ,00:00:00        ,0,36,0,0,18,54,0,,
+Advanced Family Medical Care,Medical Practice,,4002 W Park Blvd,Plano,Collin,4002 West Park Boulevard, Plano, TX, USA,75093,05/11/2021      ,16:11:45        ,0,650,0,0,0,650,0,(972) 985-8000,
+Plano Family Clinic,Medical Practice,,Chase Oaks Boulevard,Plano,Collin,6513 Chase Oaks Boulevard, Plano, TX, USA,75023,05/11/2021      ,10:38:16        ,0,214,0,0,0,214,0,,
+Omni Medical Center,Community Clinic,,4666 MCDERMOTT RD,Plano,Collin,4666 MCDERMOTT RD # 100 Plano 75024,75024,05/06/2021      ,08:13:10        ,1020,0,0,0,0,1020,0,,
+Kroger Pharmacy 598,Federal Allocation,,Coit Rd,Plano,Collin,9700 Coit Rd,75025,05/10/2021      ,08:05:00        ,785,0,0,0,90,875,0,,
+Kroger Pharmacy 589,Pharmacy,,4650 W University Dr,Prosper,Collin,4650 W University Dr,75078,05/10/2021      ,08:05:00        ,0,0,96,0,50,50,96,(972) 346-5244,http://www.kroger.com/stores/details/035/00589?cid=loc_03500589PP_gmb
+Kroger Pharmacy 573,Pharmacy,,1250 N Preston Road,Prosper,Collin,1250 N Preston Road,75078,05/10/2021      ,08:05:00        ,120,0,0,0,180,300,0,(972) 346-5210,http://www.kroger.com/stores/details/035/00573?cid=loc_03500573PP_gmb
+Kroger Pharmacy 567,Pharmacy,,2901 Lake Forest Dr,Mckinney,Collin,2901 Lake Forest Dr,75072,05/10/2021      ,08:05:00        ,0,0,0,0,25,25,0,(972) 540-1172,http://www.kroger.com/stores/details/026/00567?cid=loc_02600567PP_gmb
+Kroger Pharmacy 565,Pharmacy,,1801 N Lake Forest Dr,Mckinney,Collin,1801 N Lake Forest Dr,75071,05/10/2021      ,08:05:00        ,582,0,72,0,90,672,72,(469) 678-3882,http://www.kroger.com/stores/details/026/00565?cid=loc_02600565PP_gmb
+Kroger Pharmacy 560,Federal Allocation,,7500 Preston,Frisco,Collin,7500 Preston,75034,05/10/2021      ,08:05:00        ,0,0,0,0,10,10,0,,
+Kroger Pharmacy 548,Pharmacy,,1210 N Greenville Ave,Allen,Collin,1210 N Greenville Ave,75002,05/10/2021      ,08:05:00        ,10,0,0,0,100,110,0,(214) 383-7100,https://www.kroger.com/stores/details/035/00548?cid=loc_03500548_gmb
+Kroger Pharmacy 547,Pharmacy,,3205 Main St,Frisco,Collin,3205 Main St,75034,05/10/2021      ,08:05:00        ,60,0,0,0,40,100,0,(972) 731-0615,http://www.kroger.com/stores/details/035/00547?cid=loc_03500547PP_gmb
+Kroger Pharmacy 546,Pharmacy,,4851 Legacy Drive,Frisco,Collin,4851 Legacy Drive,75034,05/10/2021      ,08:05:00        ,0,0,0,0,30,30,0,(972) 377-0251,http://www.kroger.com/stores/details/035/00546?cid=loc_03500546PP_gmb
+Kroger Pharmacy 544,Pharmacy,,1212 E Bethany Dr,Allen,Collin,1212 E Bethany Dr,75002,05/10/2021      ,08:05:00        ,36,0,0,0,0,36,0,(972) 244-7681,http://www.kroger.com/stores/details/035/00578?cid=loc_03500578PP_gmb
+Kroger Pharmacy 522,Pharmacy,,7100 Independence Pkwy,Plano,Collin,7100 Independence Pkwy,75025,05/10/2021      ,08:05:00        ,48,0,0,0,80,128,0,(972) 491-2596,http://www.kroger.com/stores/details/035/00522?cid=loc_03500522PP_gmb
+Kroger Pharmacy 488,Pharmacy,,1707 W University Dr,Mckinney,Collin,1707 W University Dr,75069,05/10/2021      ,08:05:00        ,0,0,0,0,65,65,0,(972) 548-9633,http://www.kroger.com/stores/details/011/00488?cid=loc_01100488PP_gmb
+Collin County Healthcare Services,Vaccine Hub,E,825 N. McDonald St.,McKinney,Collin,825 N. McDonald St., Suite 145,75069,05/11/2021      ,09:35:11        ,0,0,0,0,0,0,0,214-491-4838,https://www.collincountytx.gov/healthcare_services/Pages/COVID19vaccines.aspx
+Princeton  Pharmacy,Federal Allocation,,100 W Princeton Dr Ste A,Princeton,Collin,100 W PRINCETON DR # A PRINCETON 75407,75407,05/10/2021      ,09:56:51        ,0,90,0,0,120,210,0,,
+Convergent Diagnostics,Community Clinic,,,Allen,Collin,718 S Greenville Ave,75002,05/10/2021      ,17:23:40        ,0,100,0,0,0,100,0,,
+Dyer Drug Store fed,Federal Allocation,,Mckinney Street,Farmersville,Collin,133 Mckinney Street,75442,05/07/2021      ,15:19:23        ,0,462,0,368,0,462,368,,
+Walmart Pharmacy 206,Federal Allocation,,2041 REDBUD BLVD,MCKINNEY,Collin,2041 REDBUD BLVD,75069,05/03/2021      ,00:00:00        ,0,0,0,0,650,650,0,,
+CVS PHARMACY 3200,Federal Allocation,,2140 Hedgcoxe Rd.,Plano,Collin,2140 Hedgcoxe Rd Plano 75025,75025,05/03/2021      ,00:00:00        ,621,0,232,0,0,621,232,,
+CVS Pharmacy 10673,Federal Allocation,,Sam Rayburn Hwy,,Melissa,Collin,2600 Sam Rayburn Hwy,,75454,05/03/2021      ,00:00:00        ,1064,0,374,0,0,1064,374,,
+CVS Pharmacy 10581,Federal Allocation,,Eldorado Pkwy.,Frisco,Collin,12740 Eldorado Pkwy.,75035,05/03/2021      ,00:00:00        ,526,0,212,0,0,526,212,,
+FRISCORX AND COMPOUNDING LLC,Other,,DALLAS PKWY,Plano,Collin,5933 DALLAS PKWY STE 300 Plano 75093,75093,05/11/2021      ,07:29:18        ,3440,0,0,0,0,3440,0,,
+Ava Healthcare LLC,Pharmacy,,1600 W Louisiana St,McKinney,Collin,1600 West Louisiana Street, McKinney, TX, USA,75069,05/10/2021      ,12:51:37        ,0,290,0,0,0,290,0,,
+COSTCO PHARMACY 684,Federal Allocation,,Dallas Parkway,Plano,Collin,1701 Dallas Parkway,75093,05/11/2021      ,09:04:47        ,0,120,0,0,320,440,0,,
 Sams Club Pharmacy 6255,Federal Allocation,,8621 Ohio Dr,Plano,Collin,8621 Ohio Dr,75024,05/03/2021      ,00:00:00        ,0,50,0,0,0,50,0,,
 Walmart Pharmacy 5311,Federal Allocation,,1721 N Custer Rd,Mckinney,Collin,1721 N CUSTER RD MCKINNEY 75071,75071,05/03/2021      ,00:00:00        ,0,28,0,0,28,56,0,,
 Walmart Pharmacy 6300,Federal Allocation,,500 Richland Boulevard,Prosper,Collin,500 Richland Blvd Prosper 75078,75078,05/03/2021      ,00:00:00        ,0,26,0,0,13,39,0,,
@@ -17,119 +32,113 @@ CVS PHARMACY 2876,Federal Allocation,,201 S. Preston Rd.,Prosper,Collin,201 S Pr
 Walmart Pharmacy 4182,Federal Allocation,,3312 Preston Road,Plano,Collin,3312 PRESTON RD PLANO 75093,75093,05/03/2021      ,00:00:00        ,0,0,0,0,120,120,0,,
 Walmart Pharmacy 2995,Federal Allocation,,,Plano,Collin,8040 Independence Pkwy,75025,05/03/2021      ,00:00:00        ,0,70,0,0,0,70,0,,
 Sams Club Pharmacy 8299,Federal Allocation,,,Plano,Collin,301 Coit Road,75075,05/03/2021      ,00:00:00        ,0,139,0,0,0,139,0,,
-Sams Club Pharmacy 4743,Federal Allocation,,E Spring Creek Pkwy,Plano,Collin,1200 E Spring Creek Pkwy,75074,05/03/2021      ,00:00:00        ,0,0,0,0,266,266,0,,
-COSTCO PHARMACY 664,Federal Allocation,,3800 Cenral Expressway,East Plano,Collin,3800 Cenral Expressway,75074,05/03/2021      ,00:00:00        ,0,22,0,14,74,96,14,,
-Walmart Pharmacy 6078,Federal Allocation,,1400 Mccreary Rd,Wylie,Collin,1400 MCCREARY RD Wylie 75098,75098,05/03/2021      ,00:00:00        ,0,60,0,0,0,60,0,,
-Walmart Pharmacy 3199,Federal Allocation,,3513 E Park Blvd,Plano,Collin,3513 E PARK BLVD PLANO 75074,75074,05/03/2021      ,00:00:00        ,0,140,0,0,0,140,0,,
-Sams Club Pharmacy 4906,Federal Allocation,,1670 W University Dr,Mckinney,Collin,1670 W University Dr McKinney 75069,75069,05/03/2021      ,00:00:00        ,0,194,0,15,0,194,15,,
-Walmart Pharmacy 206,Federal Allocation,,2041 REDBUD BLVD,MCKINNEY,Collin,2041 REDBUD BLVD,75069,05/03/2021      ,00:00:00        ,0,0,0,0,650,650,0,,
-Dyer Drug Store fed,Federal Allocation,,Mckinney Street,Farmersville,Collin,133 Mckinney Street,75442,05/03/2021      ,00:00:00        ,0,499,0,230,0,499,230,,
-CVS PHARMACY 3200,Federal Allocation,,2140 Hedgcoxe Rd.,Plano,Collin,2140 Hedgcoxe Rd Plano 75025,75025,05/03/2021      ,00:00:00        ,621,0,232,0,0,621,232,,
-CVS Pharmacy 10673,Federal Allocation,,Sam Rayburn Hwy,,Melissa,Collin,2600 Sam Rayburn Hwy,,75454,05/03/2021      ,00:00:00        ,1064,0,374,0,0,1064,374,,
-CVS Pharmacy 10581,Federal Allocation,,Eldorado Pkwy.,Frisco,Collin,12740 Eldorado Pkwy.,75035,05/03/2021      ,00:00:00        ,526,0,212,0,0,526,212,,
-COSTCO PHARMACY 684,Federal Allocation,,Dallas Parkway,Plano,Collin,1701 Dallas Parkway,75093,05/03/2021      ,00:00:00        ,96,16,42,7,23,135,49,,
-Infinity Pharmacy Solutions llc,Federal Allocation,,3313 Essex Dr ,Richardson,Collin,3313 Essex Dr #200,75082,05/03/2021      ,09:46:11        ,0,0,0,0,75,75,0,,
+Infinity Pharmacy Solutions llc,Federal Allocation,,3313 Essex Dr ,Richardson,Collin,3313 Essex Dr #200,75082,05/11/2021      ,13:21:42        ,0,0,0,0,75,75,0,,
 CVS PHARMACY 5380,Federal Allocation,,8953 Virginia Pkwy.,Mckinney,Collin,8953 Virginia Pkwy McKinney 75071,75071,05/03/2021      ,00:00:00        ,639,0,235,0,0,639,235,,
 CVS PHARMACY 3718,Federal Allocation,,Stacy Rd.,Allen,Collin,1550 Stacy Rd.,75002,05/03/2021      ,00:00:00        ,908,0,331,0,0,908,331,,
+Walmart Pharmacy 5211,Federal Allocation,,5001 MCKINNEY RANCH PKWY ,McKinney ,Collin,5001 MCKINNEY RANCH PKWY ,75070,05/03/2021      ,00:00:00        ,272,0,110,0,0,272,110,(972) 529-2187,
 CVS PHARMACY 7453,Federal Allocation,,Coit Rd.,Plano,Collin,2200 Coit Rd.,75075,05/03/2021      ,00:00:00        ,654,0,243,0,0,654,243,,
 CVS PHARMACY 5799,Federal Allocation,,El Dorado Pkwy.,Mckinney,Collin,6301 El Dorado Pkwy.,75070,05/03/2021      ,00:00:00        ,636,0,229,0,0,636,229,,
 CVS PHARMACY 8394,Federal Allocation,,N. Alma Drive,Allen,Collin,1210 N. Alma Drive,75013,05/03/2021      ,00:00:00        ,939,0,353,0,0,939,353,,
-Walmart Pharmacy 5211,Federal Allocation,,5001 MCKINNEY RANCH PKWY ,McKinney ,Collin,5001 MCKINNEY RANCH PKWY ,75070,05/03/2021      ,00:00:00        ,272,0,110,0,0,272,110,(972) 529-2187,
 Walmart Pharmacy 2883,Federal Allocation,,8801 OHIO DR ,PLANO ,Collin,8801 OHIO DR ,75024,05/03/2021      ,00:00:00        ,238,0,114,0,0,238,114,(972) 731-9588,
+Sams Club Pharmacy 4906,Federal Allocation,,1670 W University Dr,Mckinney,Collin,1670 W University Dr McKinney 75069,75069,05/03/2021      ,00:00:00        ,0,194,0,15,0,194,15,,
+Walmart Pharmacy 3199,Federal Allocation,,3513 E Park Blvd,Plano,Collin,3513 E PARK BLVD PLANO 75074,75074,05/03/2021      ,00:00:00        ,0,140,0,0,0,140,0,,
+Walmart Pharmacy 6078,Federal Allocation,,1400 Mccreary Rd,Wylie,Collin,1400 MCCREARY RD Wylie 75098,75098,05/03/2021      ,00:00:00        ,0,60,0,0,0,60,0,,
 CVS PHARMACY 17573,Federal Allocation,,,Wylie,Collin,3440 W Fm 544,75098,05/03/2021      ,00:00:00        ,0,110,0,0,0,110,0,,
 CVS PHARMACY 17548,Federal Allocation,,,Allen,Collin,150 E Stacy Rd,75002,05/03/2021      ,00:00:00        ,0,210,0,0,0,210,0,,
 CVS Pharmacy 17225,Federal Allocation,,8900 State Hwy 121,Mckinney,Collin,8900 State Hwy 121,75070,05/03/2021      ,00:00:00        ,0,75,0,0,25,100,0,,
 CVS Pharmacy 16889,Federal Allocation,,3201 Preston Rd,Frisco,Collin,3201 Preston Rd,7503475034,05/03/2021      ,00:00:00        ,0,57,0,3,30,87,3,,
+Walmart Pharmacy  2463,Federal Allocation,,355 Stonebrook Pkwy,Frisco,Collin,355 Stonebrook Pkwy,75034,05/03/2021      ,00:00:00        ,0,36,0,0,18,54,0,,
+Walmart Pharmacy 202,Federal Allocation,,16066 State Hwy 121,Frisco,Collin,16066 State Hwy 121,75035,05/03/2021      ,00:00:00        ,0,0,0,0,641,641,0,,
+Walmart Pharmacy 2086,Federal Allocation,,1700 Dallas Pkwy,Plano,Collin,1700 Dallas Pkwy,75093,05/03/2021      ,00:00:00        ,0,41,0,0,83,124,0,,
+Walmart Pharmacy 2918,Federal Allocation,,730 W Exchange Pkwy,Allen,Collin,730 W Exchange Pkwy,75013,05/03/2021      ,00:00:00        ,0,0,0,0,650,650,0,,
+Walmart Pharmacy 2926,Federal Allocation,,6000 Coit Rd,Plano,Collin,6000 Coit Rd,75023,05/03/2021      ,00:00:00        ,0,40,0,0,0,40,0,,
+Walmart Pharmacy 2973,Federal Allocation,,115 W Fm 544,Murphy,Collin,115 W Fm 544,75094,05/03/2021      ,00:00:00        ,0,43,0,0,86,129,0,,
 CVS Pharmacy 11297,Federal Allocation,,6125 Legacy Drive,Plano,Collin,6125 Legacy Drive,75024,05/03/2021      ,00:00:00        ,0,150,0,0,0,150,0,,
+Walmart Pharmacy 3482,Federal Allocation,,,Plano,Collin,425 Coit Rd,75075,05/03/2021      ,00:00:00        ,0,105,0,0,0,105,0,,
 CVS Pharmacy 10887,Federal Allocation,,8516 Parker Road East,Wylie,Collin,8516 Parker Road East,75098,05/03/2021      ,00:00:00        ,0,0,0,0,140,140,0,,
-CVS PHARMACY 10479,Federal Allocation,,,Plano,Collin,4000 W. Spring Creek Pkwy,75024,05/03/2021      ,00:00:00        ,0,150,0,0,0,150,0,,
-CVS PHARMACY 06957,Federal Allocation,,,Plano,Collin,1501 Independence Pkwy,75075,05/03/2021      ,00:00:00        ,0,66,0,0,33,99,0,,
-CVS PHARMACY 5965,Federal Allocation,, PRESTON RD, PLANO ,Collin,6761 PRESTON RD,75024,05/03/2021      ,00:00:00        ,0,0,0,0,140,140,0,,
-CVS PHARMACY 5952,Federal Allocation,, W University Dr ,McKinney,Collin,2313 W University Dr , 75071,05/03/2021      ,00:00:00        ,0,0,0,0,100,100,0,,
-CVS PHARMACY 1792,Federal Allocation,,4201 E PARK BLVD,PLANO,Collin,4201 E PARK BLVD PLANO 75074,75074,05/03/2021      ,00:00:00        ,0,0,0,0,152,152,0,972-424-0067,https://www.cvs.com/store-locator/cvs-pharmacy-address/4201+E+Park+Ave-Plano-TX-75074/storeid=1792?WT.mc_id=LS_GOOGLE_RX_1792
-CVS PHARMACY 7825,Federal Allocation,,5401 Lebanon,Frisco,Collin,5401 Lebanon,75034,05/03/2021      ,00:00:00        ,0,5,0,4,0,5,4,,
+Walmart Pharmacy 6966,Federal Allocation,,3400 Virginia Pkwy,Mckinney,Collin,3400 Virginia Pkwy,75071,05/03/2021      ,00:00:00        ,0,70,0,0,0,70,0,,
+Walmart Pharmacy 7178,Federal Allocation,,701 W Princeton Dr,Princeton,Collin,701 W Princeton Dr,75407,05/03/2021      ,00:00:00        ,0,34,0,0,17,51,0,,
+Costco Wholesale 1284,Federal Allocation,,,Mckinny,Collin,3650 W University Dr,75071,05/07/2021      ,18:55:13        ,0,80,0,0,305,385,0,,
 CVS PHARMACY 3292,Federal Allocation,,750 W. Fm 544,Wylie,Collin,750 W. Fm 544,75098,05/03/2021      ,00:00:00        ,0,1756,0,1443,0,1756,1443,,
+CVS PHARMACY 7825,Federal Allocation,,5401 Lebanon,Frisco,Collin,5401 Lebanon,75034,05/03/2021      ,00:00:00        ,0,5,0,4,0,5,4,,
+CVS PHARMACY 1792,Federal Allocation,,4201 E PARK BLVD,PLANO,Collin,4201 E PARK BLVD PLANO 75074,75074,05/03/2021      ,00:00:00        ,0,0,0,0,152,152,0,972-424-0067,https://www.cvs.com/store-locator/cvs-pharmacy-address/4201+E+Park+Ave-Plano-TX-75074/storeid=1792?WT.mc_id=LS_GOOGLE_RX_1792
 CVS PHARMACY 06821,Federal Allocation,,,Mckinney,Collin,159 S Central Expy,75070,05/03/2021      ,00:00:00        ,0,1846,0,1353,0,1846,1353,,
+Sams Club Pharmacy 4743,Federal Allocation,,E Spring Creek Pkwy,Plano,Collin,1200 E Spring Creek Pkwy,75074,05/03/2021      ,00:00:00        ,0,0,0,0,266,266,0,,
+CVS PHARMACY 5952,Federal Allocation,, W University Dr ,McKinney,Collin,2313 W University Dr , 75071,05/03/2021      ,00:00:00        ,0,0,0,0,100,100,0,,
+CVS PHARMACY 5965,Federal Allocation,, PRESTON RD, PLANO ,Collin,6761 PRESTON RD,75024,05/03/2021      ,00:00:00        ,0,0,0,0,140,140,0,,
+CVS PHARMACY 06957,Federal Allocation,,,Plano,Collin,1501 Independence Pkwy,75075,05/03/2021      ,00:00:00        ,0,66,0,0,33,99,0,,
+COSTCO PHARMACY 664,Federal Allocation,,3800 Cenral Expressway,East Plano,Collin,3800 Cenral Expressway,75074,05/11/2021      ,08:19:48        ,0,90,0,0,320,410,0,,
 CVS PHARMACY 8393,Federal Allocation,,2101 W. Spring Creek Pkwy.,Plano,Collin,2101 W. Spring Creek Pkwy.,75023,05/03/2021      ,00:00:00        ,0,200,0,169,0,200,169,,
 CVS PHARMACY 3724,Federal Allocation,,8940 Coit Rd.,Plano,Collin,8940 Coit Rd.,75025,05/03/2021      ,00:00:00        ,1827,0,1451,0,0,1827,1451,,
+Premier Independent Physicians of McKinney,Medical Practice,,1820 N Lake Forest Dr,McKinney,Collin,1820 North Lake Forest Drive, McKinney, TX, USA,75071,05/03/2021      ,08:05:37        ,0,100,0,0,0,100,0,,
+CVS PHARMACY 10675,Federal Allocation,,,Mckinney,Collin,6161 W. University Dr.,75071,04/26/2021      ,00:00:00        ,0,100,0,0,0,100,0,,
+Doctors Of Internal Medicine,Community Clinic,,,Plano,Collin,5941 Dallas Parkway,75093,05/11/2021      ,08:10:05        ,0,1100,0,0,0,1100,0,,
+J. Blake Bolin, M.D., P.A.,Medical Practice,,,Frisco,Collin,3550 Parkwood Blvd Bldg D,75034,05/06/2021      ,09:44:38        ,0,50,0,0,0,50,0,,
+International Travel Solutions-McKinney,Medical Practice,,,McKinney,Collin,3600 West Eldorado Parkway, McKinney, TX, USA,75070,05/11/2021      ,08:20:03        ,0,150,0,0,0,150,0,,
+Pediatric Offices at Willow Bend,Other,,,Plano,Collin,6529 W Plano Pkwy,75093,05/11/2021      ,08:29:58        ,0,70,0,0,100,170,0,+19727811414,
+CVS PHARMACY 10479,Federal Allocation,,,Plano,Collin,4000 W. Spring Creek Pkwy,75024,05/03/2021      ,00:00:00        ,0,150,0,0,0,150,0,,
+CVS PHARMACY 4932,Federal Allocation,,,Plano,Collin,5920 W. Park Blvd.,75093,05/03/2021      ,00:00:00        ,0,100,0,0,0,100,0,,
 CVS PHARMACY 4625,Federal Allocation,,525 W. Parker Rd.,Plano,Collin,525 W. Parker Rd.,75023,05/03/2021      ,00:00:00        ,569,0,505,0,0,569,505,,
 Walmart Pharmacy 3574,Federal Allocation,,1520 E Exchange Pkwy,Allen,Collin,1520 E EXCHANGE PKWY ALLEN 75002,75002,05/03/2021      ,00:00:00        ,0,50,0,0,0,50,0,,
 Baylor Health Enterprises #113,Federal Allocation,,3800 Gaylord Pkwy,Frisco,Collin,3800 Gaylord Parkway, Frisco, TX, USA,9416,05/03/2021      ,00:00:00        ,0,0,0,0,215,215,0,469-764-1120,
-Remedi SeniorCare of Dallas, LLC,Federal Allocation,,2700 Research Drive,Plano,Collin,2700 Research Drive,75074,05/03/2021      ,06:54:10        ,0,0,0,0,500,500,0,,
+Remedi SeniorCare of Dallas, LLC,Federal Allocation,,2700 Research Drive,Plano,Collin,2700 Research Drive,75074,05/11/2021      ,10:34:48        ,0,0,0,0,495,495,0,,
+Quality Care Pharmacy,Federal Allocation,,,Wylie,Collin,2300 West Fm 544 Suite 130,75098,05/10/2021      ,21:48:04        ,0,100,0,100,100,200,100,,
+MEDICAL CITY - FRISCO,Hospital,E,5500 Frisco Square Blvd,Frisco,Collin,5500 Frisco Square Blvd,75034,05/01/2021      ,06:48:28        ,0,0,0,140,0,0,140,(214) 618-0500,https://medicalcityhealthcare.com/locations/medical-city-frisco/?utm_campaign=corp_listings_mgmt&utm_source=google&utm_medium=business_listing
 CVS Pharmacy 10641,Federal Allocation,,2451 E. UNIVERSITY DRIVE,PROSPER,Collin,2451 E. UNIVERSITY DRIVE,75078,05/03/2021      ,00:00:00        ,0,0,0,0,561,561,0,,
 Walmart Pharmacy 1117,Federal Allocation,,6001 N CENTRAL EXPY,PLANO,Collin,6001 N CENTRAL EXPY,75023,05/03/2021      ,00:00:00        ,0,0,0,0,214,214,0,,
-Kroger Pharmacy 560,Federal Allocation,,7500 Preston,Frisco,Collin,7500 Preston,75034,05/03/2021      ,00:00:00        ,0,0,0,0,39,39,0,,
-Kroger Pharmacy 598,Federal Allocation,,Coit Rd,Plano,Collin,9700 Coit Rd,75025,05/03/2021      ,00:00:00        ,0,0,0,0,1318,1318,0,,
 Walmart Pharmacy 6963,Federal Allocation,,521 S CENTRAL EXPY,ANNA,collin,521 S CENTRAL EXPY,75409,05/03/2021      ,00:00:00        ,0,0,0,0,365,365,0,,
-FRISCORX AND COMPOUNDING LLC,Other,,DALLAS PKWY,Plano,Collin,5933 DALLAS PKWY STE 300 Plano 75093,75093,04/30/2021      ,14:36:17        ,6,0,0,0,0,6,0,,
-Lisa E. Medwedeff Md,Medical Practice,,,Plano,Collin,5425 W Spring Creek Pkwy,75024,05/03/2021      ,17:25:32        ,0,100,0,0,0,100,0,,
-Spring Creek Pharmacy,Other,,,Plano,Collin,4666 Mcdermott Road,75024,04/27/2021      ,08:56:37        ,0,50,0,50,0,50,50,,
-Mi Doctor #10,Medical Practice,,,Plano,Collin,1120 E Parker Rd Ste 195,75074,05/03/2021      ,08:33:49        ,0,120,0,0,0,120,0, 469-298-1216 ,
-Brookshires Pharmacy 79,Pharmacy,,1705 W Audie Murphy Pkwy,Farmersville,Collin,1705 W Audie Murphy Pkwy,75442,05/03/2021      ,13:48:23        ,0,50,0,0,200,250,0,(972) 782-8601,https://www.brookshires.com/covid-19-information
-Texas Diagnostic Services PLLC,Other,,Suite 101,Plano,collin,5228 Village Creek Drive, Plano, TX, USA,75093,05/03/2021      ,11:46:15        ,0,200,0,0,0,200,0,,
-Woori Pharmacy,Pharmacy,,3320 K Ave,Plano,Collin,3320 K Avenue, Plano, TX, USA,75074,04/30/2021      ,17:23:39        ,0,290,0,0,0,290,0,,
-Kroger Pharmacy 589,Pharmacy,,4650 W University Dr,Prosper,Collin,4650 W University Dr,75078,04/30/2021      ,08:05:00        ,0,0,0,0,70,70,0,(972) 346-5244,http://www.kroger.com/stores/details/035/00589?cid=loc_03500589PP_gmb
-Kroger Pharmacy 573,Pharmacy,,1250 N Preston Road,Prosper,Collin,1250 N Preston Road,75078,04/30/2021      ,08:05:00        ,36,0,0,0,200,236,0,(972) 346-5210,http://www.kroger.com/stores/details/035/00573?cid=loc_03500573PP_gmb
-Kroger Pharmacy 567,Pharmacy,,2901 Lake Forest Dr,Mckinney,Collin,2901 Lake Forest Dr,75072,04/30/2021      ,08:05:00        ,0,0,0,0,60,60,0,(972) 540-1172,http://www.kroger.com/stores/details/026/00567?cid=loc_02600567PP_gmb
-Kroger Pharmacy 565,Pharmacy,,1801 N Lake Forest Dr,Mckinney,Collin,1801 N Lake Forest Dr,75071,04/30/2021      ,08:05:00        ,174,0,72,0,90,264,72,(469) 678-3882,http://www.kroger.com/stores/details/026/00565?cid=loc_02600565PP_gmb
-Kroger Pharmacy 548,Pharmacy,,1210 N Greenville Ave,Allen,Collin,1210 N Greenville Ave,75002,04/30/2021      ,08:05:00        ,0,0,0,0,100,100,0,(214) 383-7100,https://www.kroger.com/stores/details/035/00548?cid=loc_03500548_gmb
-Kroger Pharmacy 547,Pharmacy,,3205 Main St,Frisco,Collin,3205 Main St,75034,04/30/2021      ,08:05:00        ,0,0,0,0,70,70,0,(972) 731-0615,http://www.kroger.com/stores/details/035/00547?cid=loc_03500547PP_gmb
-Kroger Pharmacy 546,Pharmacy,,4851 Legacy Drive,Frisco,Collin,4851 Legacy Drive,75034,04/30/2021      ,08:05:00        ,0,0,0,0,100,100,0,(972) 377-0251,http://www.kroger.com/stores/details/035/00546?cid=loc_03500546PP_gmb
-Kroger Pharmacy 544,Pharmacy,,1212 E Bethany Dr,Allen,Collin,1212 E Bethany Dr,75002,04/30/2021      ,08:05:00        ,72,0,0,0,0,72,0,(972) 244-7681,http://www.kroger.com/stores/details/035/00578?cid=loc_03500578PP_gmb
-Kroger Pharmacy 540,Pharmacy,,3305 N Dallas Parkway,Plano,Collin,3305 N Dallas Parkway,75093,04/30/2021      ,08:05:00        ,96,0,0,0,0,96,0,(972) 608-4694,http://www.kroger.com/stores/details/025/00430?cid=loc_02500430PP_gmb
-Kroger Pharmacy 522,Pharmacy,,7100 Independence Pkwy,Plano,Collin,7100 Independence Pkwy,75025,04/30/2021      ,08:05:00        ,66,0,0,0,80,146,0,(972) 491-2596,http://www.kroger.com/stores/details/035/00522?cid=loc_03500522PP_gmb
-Kroger Pharmacy 488,Pharmacy,,1707 W University Dr,Mckinney,Collin,1707 W University Dr,75069,04/30/2021      ,08:05:00        ,60,0,0,0,80,140,0,(972) 548-9633,http://www.kroger.com/stores/details/011/00488?cid=loc_01100488PP_gmb
-North Texas Hospital Physicians Group,Other,,,Plano ,Collin,6020 W PARKER RD STE 420,75093,05/03/2021      ,16:19:51        ,0,80,0,0,0,80,0,(972) 244-1300 ext1390,bgwarren@texasmed.com
-986 Specialty Pharmacy,Pharmacy,,,Plano,Collin,6205 Coit Rd Suite 356,75024,05/03/2021      ,11:23:31        ,0,150,0,0,170,320,0,,
-J. Blake Bolin, M.D., P.A.,Medical Practice,,,Frisco,Collin,3550 Parkwood Blvd Bldg D,75034,04/29/2021      ,12:56:38        ,0,53,0,0,0,53,0,,
-Pediatric Pulmonary Associates of North Texas, P. A. ,Medical Practice,,Wade Blvd,Frisco,Collin,8501 Wade Blvd, Suite 1020,75034,05/03/2021      ,17:42:56        ,0,280,0,0,0,280,0,+19726685864,
-Texas Diagnostic Imaging,Other,,5508 W Plano Pkwy,Plano,Collin,5508 W Plano Pkwy,75093,05/03/2021      ,09:35:14        ,0,190,0,0,0,190,0,,
-JMTI Inc,Other,,5700 Tennyson Parkway,Plano,Collin,5700 TENNYSON PKWY STE 300 Plano 75024,75024,04/29/2021      ,11:14:33        ,918,0,0,0,0,918,0,,
-Pediatric Urgent Care, PA Plano,Medical Practice,,7212 Independence Pkwy Suite A,Plano,Collin,7212 Independence Parkway, Plano, TX, USA,75025,05/02/2021      ,19:16:29        ,0,100,0,0,0,100,0,,
-Premier Independent Physicians of McKinney,Medical Practice,,1820 N Lake Forest Dr,McKinney,Collin,1820 North Lake Forest Drive, McKinney, TX, USA,75071,05/03/2021      ,08:05:37        ,0,100,0,0,0,100,0,,
-Cox Dental Services,Other,,15th,Plano,Collin,3105 West 15th Street,75075,04/30/2021      ,10:06:46        ,2282,0,0,0,0,2282,0,,
+North Texas Institute of Neurology and Headache,Other,,5150 WARREN PKWY BLDG 8 Frisco 75034,Frisco,Collin,5150 Warren Parkway,75034,05/10/2021      ,09:08:51        ,0,20,0,0,0,20,0,,
+PHYLLIS J GEE MD PA,Other,,4601 Old Shepard Place Bldg 2 Suite 201,Plano,Collin,4601 Old Shepard Place Bldg 2 Suite 201,75093,05/11/2021      ,10:01:26        ,0,180,0,200,0,180,200,,
+Centennial Primary Care,Other,,,Frisco,Collin,5520 Independence Pkwy Ste 201,75035,05/04/2021      ,15:09:30        ,0,0,0,0,30,30,0,2143830001,
+VC PHARMACY, INC,Pharmacy,,3005 E Renner Rd,Richardson,Collin,3005 E Renner Rd,75082,05/11/2021      ,08:52:21        ,0,80,0,0,0,80,0,,
+Spring Creek Pharmacy,Other,,,Plano,Collin,4666 Mcdermott Road,75024,05/11/2021      ,14:30:04        ,0,410,0,0,0,410,0,,
+Lisa E. Medwedeff Md,Medical Practice,,,Plano,Collin,5425 W Spring Creek Pkwy,75024,05/10/2021      ,18:04:37        ,0,90,0,0,0,90,0,,
+Carpe Diem Health PLLC,Community Clinic,,17762 Preston Road,Dallas,Collin,17762 PRESTON RD STE 111 Dallas 75252,75252,05/05/2021      ,19:41:38        ,972,0,0,0,0,972,0,,
+Mi Doctor #10,Medical Practice,,,Plano,Collin,1120 E Parker Rd Ste 195,75074,05/10/2021      ,08:01:01        ,0,90,0,0,0,90,0, 469-298-1216 ,
+Brookshires Pharmacy 79,Pharmacy,,1705 W Audie Murphy Pkwy,Farmersville,Collin,1705 W Audie Murphy Pkwy,75442,05/11/2021      ,14:01:01        ,0,80,0,0,190,270,0,(972) 782-8601,https://www.brookshires.com/covid-19-information
+Texas Diagnostic Services PLLC,Other,,Suite 101,Plano,collin,5228 Village Creek Drive, Plano, TX, USA,75093,05/10/2021      ,13:11:13        ,0,200,0,0,0,200,0,,
+Woori Pharmacy,Pharmacy,,3320 K Ave,Plano,Collin,3320 K Avenue, Plano, TX, USA,75074,05/08/2021      ,14:03:17        ,0,320,0,0,0,320,0,,
+North Texas Hospital Physicians Group,Other,,,Plano ,Collin,6020 W PARKER RD STE 420,75093,05/10/2021      ,15:49:48        ,0,20,0,0,0,20,0,(972) 244-1300 ext1390,bgwarren@texasmed.com
+986 Specialty Pharmacy,Pharmacy,,,Plano,Collin,6205 Coit Rd Suite 356,75024,05/11/2021      ,16:36:16        ,0,110,0,0,130,240,0,,
+Pediatric Pulmonary Associates of North Texas, P. A. ,Medical Practice,,Wade Blvd,Frisco,Collin,8501 Wade Blvd, Suite 1020,75034,05/10/2021      ,17:27:07        ,0,260,0,0,0,260,0,+19726685864,
+Texas Diagnostic Imaging,Other,,5508 W Plano Pkwy,Plano,Collin,5508 W Plano Pkwy,75093,05/10/2021      ,09:56:04        ,0,200,0,0,0,200,0,,
+Pediatric Urgent Care, PA Plano,Medical Practice,,7212 Independence Pkwy Suite A,Plano,Collin,7212 Independence Parkway, Plano, TX, USA,75025,05/11/2021      ,11:36:01        ,0,290,0,0,0,290,0,,
+Cox Dental Services,Other,,15th,Plano,Collin,3105 West 15th Street,75075,05/11/2021      ,15:07:29        ,36,0,0,0,0,36,0,,
 Internal Medicine Associates Of Plano,Medical Practice,,6124 W Parker Rd Ste 234,Plano,Collin,6124 W Parker Rd Ste 234,75093,03/25/2021      ,08:22:55        ,0,600,0,10,0,600,10,(972) 468-9999,http://www.planointernist.com/
-Vitals Family Medicine,Community Clinic,,,Allen,Collin,1420 W Exchange Pkwy Ste 120,75013,05/03/2021      ,05:06:37        ,0,90,0,0,0,90,0,,
-Tom Thumb Pharmacy 3853,Pharmacy,,3001 Hardin Boulevard,Mckinney,Collin,3001 Hardin Boulevard, McKinney, TX, USA,75070,05/02/2021      ,16:26:03        ,0,0,0,0,54,54,0,(469) 678-3680,
-Collin County Healthcare Services,Vaccine Hub,E,825 N. McDonald St.,McKinney,Collin,825 N. McDonald St., Suite 145,75069,05/03/2021      ,09:26:54        ,0,0,0,0,0,0,0,214-491-4838,https://www.collincountytx.gov/healthcare_services/Pages/COVID19vaccines.aspx
-CVS PHARMACY 10675,Federal Allocation,,,Mckinney,Collin,6161 W. University Dr.,75071,04/26/2021      ,00:00:00        ,0,100,0,0,0,100,0,,
-McKinney Pharmacy,Pharmacy,,1601 W University Dr,McKinney,Collin,1601 West University Drive, McKinney, TX, USA,75069,05/03/2021      ,18:08:53        ,0,330,0,0,0,330,0,,
-Walgreens Pharmacy 21173,Pharmacy,,1600 Coit Rd,Plano,Collin,1600 Coit Rd,75075,04/19/2021      ,08:51:45        ,0,0,0,0,100,100,0,(469) 974-3661,https://www.walgreens.com/locator/walgreens-1600+coit+rd-plano-tx-75075/id=21173
-Tom Thumb Pharmacy 2554,Pharmacy,,3100 Independence Parkway,Plano,Collin,3100 Independence Parkway,75075,05/02/2021      ,15:13:07        ,0,0,89,0,15,15,89,(972) 596-4422,https://local.pharmacy.tomthumb.com/tx/plano/3100-independence-pkwy.html
-Celina Drug,Pharmacy,,701 N Preston Rd Ste 210,Celina,Collin,701 N Preston Rd Ste 210,75009,04/28/2021      ,16:12:01        ,0,100,0,50,0,100,50,(972) 382-2832,http://www.celinadrug.com/
-Q Day Walk-In Clinic And Spa,Community Clinic,,3560 E Park Blvd,Plano,Collin,3560 E Park Blvd Plano 75074,75074,04/28/2021      ,16:45:37        ,1089,0,0,0,0,1089,0,,
-Village Health Partners- McKinney,Community Clinic,,,Mckinney,Collin,7300 Eldorado Parkway Ste 200,75070,05/02/2021      ,08:01:31        ,0,15,0,0,0,15,0,+1 214 964 0304,https://villagehealthpartners.com/mckinney-medical-village
-Tom Thumb Pharmacy 3582,Pharmacy,,18212 Preston Rd,Dallas,Collin,18212 Preston Rd,75252,04/30/2021      ,19:08:48        ,192,0,192,0,100,292,192,(972) 985-2250,https://local.pharmacy.tomthumb.com/tx/dallas/18212-preston-rd.html
-Tom Thumb Pharmacy 2595,Pharmacy,,3945 Legacy Drive,Plano,Collin,3945 Legacy Drive,75023,05/02/2021      ,16:29:29        ,0,0,180,0,2040,2040,180,(972) 491-2210,https://local.pharmacy.tomthumb.com/tx/plano/3945-legacy-dr.html
-Tom Thumb Pharmacy 2581,Pharmacy,,4848 Preston Rd,Frisco,Collin,4848 Preston Rd,75034,05/02/2021      ,14:16:13        ,0,0,600,0,85,85,600,(972) 377-1812,https://local.pharmacy.tomthumb.com/tx/frisco/4848-preston-rd.html
-Albertsons Pharmacy 0296,Pharmacy,,6800 W Virginia Parkway,Mckinney,Collin,6800 W Virginia Parkway,75069,05/02/2021      ,16:12:44        ,198,30,0,0,45,273,0,(972) 542-0010,https://local.pharmacy.tomthumb.com/tx/mckinney/6800-w-virginia-pkwy.html
-Questcare Medical Clinics- Mckinney,Other,,W UNIVERSITY DR,Mckinney,Collin,5291 W UNIVERSITY DR MCKINNEY 75071,75071,05/03/2021      ,18:23:59        ,0,152,0,0,0,152,0,9725428464,Healthcaremedicalclinic.com
-Fresenius Kidney Care Renner Rd.,Other,,3517 Spectrum Blvd,Richardson,Collin,3517 Spectrum Boulevard, Richardson, TX, USA,75082,05/03/2021      ,10:10:57        ,0,10,0,0,0,10,0,972-908-2769,
-Market Street Pharmacy 566,Pharmacy,,1929 Preston Rd,Plano,Collin,1929 Preston Rd,75093,05/03/2021      ,10:40:51        ,0,200,0,0,265,465,0,(972) 713-5515,https://local.pharmacy.marketstreetunited.com/tx/plano/1929-preston-rd.html
+Vitals Family Medicine,Community Clinic,,,Allen,Collin,1420 W Exchange Pkwy Ste 120,75013,05/10/2021      ,08:42:43        ,0,70,0,0,0,70,0,,
+Walgreens Pharmacy 21173,Pharmacy,,1600 Coit Rd,Plano,Collin,1600 Coit Rd,75075,05/10/2021      ,17:23:12        ,0,0,0,0,100,100,0,(469) 974-3661,https://www.walgreens.com/locator/walgreens-1600+coit+rd-plano-tx-75075/id=21173
+Tom Thumb Pharmacy 2554,Pharmacy,,3100 Independence Parkway,Plano,Collin,3100 Independence Parkway,75075,05/10/2021      ,20:17:59        ,24,0,0,0,185,209,0,(972) 596-4422,https://local.pharmacy.tomthumb.com/tx/plano/3100-independence-pkwy.html
+Ayass Lung Clinic PLLC,Medical Practice,,8501 Wade Blvd,Frisco,Collin,8501 WADE BLVD STE 750 Frisco 75034,75034,05/07/2021      ,18:25:39        ,0,445,0,0,0,445,0,,
+Celina Drug,Pharmacy,,701 N Preston Rd Ste 210,Celina,Collin,701 N Preston Rd Ste 210,75009,05/06/2021      ,14:16:49        ,0,100,0,50,0,100,50,(972) 382-2832,http://www.celinadrug.com/
+Q Day Walk-In Clinic And Spa,Community Clinic,,3560 E Park Blvd,Plano,Collin,3560 E Park Blvd Plano 75074,75074,05/11/2021      ,11:11:11        ,3382,0,3382,0,0,3382,3382,,
+Tom Thumb Pharmacy 3645,Pharmacy,,2200 14th St,Plano,Collin,2200 14th St,75074,05/10/2021      ,08:48:51        ,0,0,0,0,305,305,0,(972) 423-4107,https://local.pharmacy.tomthumb.com/tx/plano/2200-e-14th-st.html
+Tom Thumb Pharmacy 2595,Pharmacy,,3945 Legacy Drive,Plano,Collin,3945 Legacy Drive,75023,05/10/2021      ,20:33:52        ,0,0,0,0,495,495,0,(972) 491-2210,https://local.pharmacy.tomthumb.com/tx/plano/3945-legacy-dr.html
+Tom Thumb Pharmacy 2581,Pharmacy,,4848 Preston Rd,Frisco,Collin,4848 Preston Rd,75034,05/10/2021      ,20:16:58        ,1100,0,210,0,65,1165,210,(972) 377-1812,https://local.pharmacy.tomthumb.com/tx/frisco/4848-preston-rd.html
+Albertsons Pharmacy 0296,Pharmacy,,6800 W Virginia Parkway,Mckinney,Collin,6800 W Virginia Parkway,75069,05/10/2021      ,19:40:14        ,150,20,0,0,245,415,0,(972) 542-0010,https://local.pharmacy.tomthumb.com/tx/mckinney/6800-w-virginia-pkwy.html
+Questcare Medical Clinics- Mckinney,Other,,W UNIVERSITY DR,Mckinney,Collin,5291 W UNIVERSITY DR MCKINNEY 75071,75071,05/07/2021      ,11:29:28        ,0,128,0,0,0,128,0,9725428464,Healthcaremedicalclinic.com
+Market Street Pharmacy 566,Pharmacy,,1929 Preston Rd,Plano,Collin,1929 Preston Rd,75093,05/08/2021      ,09:22:42        ,0,340,0,0,300,640,0,(972) 713-5515,https://local.pharmacy.marketstreetunited.com/tx/plano/1929-preston-rd.html
 Frisco Fire Department,Other,,8601 Gary Burns Dr,Frisco,Collin,8601 Gary Burns Dr,75034,04/30/2021      ,07:24:53        ,0,0,2646,0,100,100,2646,(972) 292-6306,http://www.friscofire.com/
-Fresenius West Plano,Other,,4405 Tradition Trail,Plano,Collin,4405 Tradition Trail,75093,05/03/2021      ,10:19:02        ,0,60,0,0,0,60,0,(972) 943-7656,
-Accel Rehabilitation Hospital,Other,,Marsh Lane,Plano,Collin,2301 Marsh Lane,75093,05/03/2021      ,09:36:23        ,0,100,0,100,0,100,100,,
-Walgreens Pharmacy 05710,Pharmacy,,18410 Preston Rd,Dallas,Collin,18410 Preston Rd,75252,05/03/2021      ,11:34:16        ,48,310,0,0,252,610,0,(972) 599-1004,Walgreens.com/covid19vac
-Wylie Isd - Wylie,Other,,951 S Ballard Ave,Wylie,Collin,951 S Ballard Ave Wylie 75098,75098,05/03/2021      ,15:13:04        ,0,50,0,462,0,50,462,,
-Walgreens Pharmacy 09908,Pharmacy,,1651 W Univeristy Dr,Mckinney,Collin,1651 W Univeristy Dr,75069,05/03/2021      ,08:37:08        ,0,0,0,0,125,125,0,(972) 548-1662,Walgreens.com/covid19vac
-Walgreens Pharmacy 06663,Pharmacy,,4201 E Renner Rd,Richardson,Collin,4201 E Renner Rd,75082,05/03/2021      ,09:28:23        ,18,470,0,0,250,738,0,(972) 234-0889,Walgreens.com/covid19vac
-Walgreens Pharmacy 04786,Pharmacy,,5049 Preston Rd,Frisco,Collin,5049 Preston Rd,75034,05/03/2021      ,08:32:46        ,0,237,36,0,215,452,36,214-387-9505,https://www.walgreens.com/locator/walgreens-112+bennett+drive-caribou-me-04736/id=18248?o=acs
-Walgreens Pharmacy 04787,Pharmacy,,1226 W Mcdermott Dr,Allen,Collin,1226 W Mcdermott Dr,75013,05/03/2021      ,10:19:54        ,0,370,13,0,190,560,13,,
-Market Street Pharmacy 685,Pharmacy,,4268 Legacy Dr,Frisco,Collin,4268 Legacy Dr,75034,05/03/2021      ,08:46:35        ,0,0,0,0,400,400,0,(214) 705-0362,https://local.pharmacy.marketstreetunited.com/tx/frisco/4268-legacy-dr.html
-Beaker Pharmacy,Pharmacy,,Eldorado Pkwy,Mckinney,collin,7810 Eldorado pkwy ste 200,75070,05/01/2021      ,23:10:37        ,1106,0,0,0,70,1176,0,,
-City Of Plano,Other,,1901 K Avenue,Plano,Collin,1901 K Avenue,75074,04/30/2021      ,09:00:11        ,0,0,0,300,0,0,300,(972) 941-7159,http://www.plano.gov/
-Brookshires Pharmacy 131,Pharmacy,,1325 W White St,Anna,Collin,1325 W White St,75409,05/03/2021      ,18:17:56        ,0,10,0,0,190,200,0,(972) 924-4220,https://www.brookshires.com/covid-19-information
-Brookshires Pharmacy 73,Pharmacy,,675 E Sunset Blvd,Celina,Collin,675 E Sunset Blvd,75009,05/03/2021      ,18:57:22        ,0,70,0,0,105,175,0,(972) 382-3989,https://www.brookshires.com/covid-19-information
-LEGENT HOSPITAL FOR SPECIAL SURGERY,Hospital,E,4100 Mapleshade Lane, Plano,Collin,4100 Mapleshade Lane, Plano, TX, 75075,75075,05/03/2021      ,10:07:57        ,0,0,0,300,0,0,300,(972) 265-1050,
-Market Street Pharmacy 563,Pharmacy,,985 W Bethany Dr,Allen,Collin,985 W Bethany Dr,75013,05/03/2021      ,08:30:10        ,6,200,0,0,255,461,0,(972) 908-3840,https://local.pharmacy.marketstreetunited.com/tx/allen/985-w-bethany-dr.html
-Cigna Healthcare Of Texas Plano,Other,,1640 DALLAS PKWY,Plano,Collin,1640 DALLAS PKWY PLANO 75093,75093,05/03/2021      ,16:28:06        ,0,0,0,0,95,95,0,,
-Fairview Dermatology,Medical Practice,,331 Town Pl,Mckinney,Collin,331 Town Pl,75069,05/03/2021      ,06:52:52        ,0,40,0,0,0,40,0,(972) 747-0000,https://www.fairviewderm.com/
-Market Street Pharmacy 561,Pharmacy,,6100 Eldorado Pkwy,Mckinney,Collin,6100 Eldorado Pkwy,75070,05/03/2021      ,08:53:32        ,400,0,0,0,0,400,0,(214) 872-1515,https://local.pharmacy.marketstreetunited.com/tx/frisco/11999-dallas-pkwy.html
-Jeffrey A George Md,Medical Practice,,5236 W University Dr.,McKinney,Collin,5236 W University Dr Ste 3200 McKinney 75071,75071,04/30/2021      ,16:34:03        ,0,80,0,0,0,80,0,,
-Advanced Family Medical Care,Medical Practice,,4002 W Park Blvd,Plano,Collin,4002 West Park Boulevard, Plano, TX, USA,75093,04/30/2021      ,17:07:19        ,0,364,0,0,0,364,0,(972) 985-8000,
-DRIVEN MD PLLC,Medical Practice,E,5729 Lebanon Rd Ste 144,Frisco,Collin,5729 Lebanon Rd Ste 144,75034,05/03/2021      ,13:53:28        ,45,0,0,940,0,45,940,2144940177,
-Murphy Fire-Rescue,Other,E,206 N. Murphy Rd. ,Murphy,Collin,206 N. Murphy Rd.,75094,04/29/2021      ,17:40:45        ,0,0,0,20,0,0,20,,
-Ann H Snyder, MD PA,Medical Practice,,,McKinney,Collin,4561 Medical Center Drive,75069,04/28/2021      ,17:34:11        ,0,60,0,0,0,60,0,,
-CaringRX Pharmacy,Pharmacy,,Parker Road,Plano,Collin,6020 W. Parker Rd. STE 270,75093,05/03/2021      ,17:14:45        ,0,1730,0,0,0,1730,0,(972) 378-4107,CARINGRXPHARMACY@GMAIL.COM
-BAYLOR SCOTT WHITE MEDICAL CENTER OF PLANO,Vaccine Hub,E,4700 Alliance Blvd,Plano,Collin,4700 Alliance Blvd,75093,05/03/2021      ,08:25:30        ,0,0,0,0,0,0,0,1-844-279-8222,https://www.bswhealth.com/covid-vaccine
-International Travel Solutions - Plano,Medical Practice,,4700 Dexter Dr #300,Plano,Collin,4700 Dexter Dr #300,75093,05/01/2021      ,07:46:25        ,0,100,0,0,0,100,0,(469) 241-1954,http://passporthealthusa.com/
+Fresenius West Plano,Other,,4405 Tradition Trail,Plano,Collin,4405 Tradition Trail,75093,05/10/2021      ,10:54:40        ,0,0,0,200,0,0,200,(972) 943-7656,
+Accel Rehabilitation Hospital,Other,,Marsh Lane,Plano,Collin,2301 Marsh Lane,75093,05/11/2021      ,08:23:31        ,0,100,0,100,0,100,100,,
+Frisco Apothecary LP,Pharmacy,,Legacy Dr,Frisco,Collin,3010 Legacy Dr Ste. 110,75034,05/11/2021      ,11:51:29        ,0,0,0,0,10,10,0,(469) 294-2001,
+Wylie Isd - Wylie,Other,,951 S Ballard Ave,Wylie,Collin,951 S Ballard Ave Wylie 75098,75098,05/10/2021      ,12:33:57        ,0,50,0,1000,0,50,1000,,
+Walgreens Pharmacy 09908,Pharmacy,,1651 W Univeristy Dr,Mckinney,Collin,1651 W Univeristy Dr,75069,05/11/2021      ,10:17:10        ,0,0,0,0,125,125,0,(972) 548-1662,Walgreens.com/covid19vac
+Walgreens Pharmacy 06329,Pharmacy,,720 W Kirby St,Wylie,Collin,720 W Kirby St,75098,05/10/2021      ,09:57:22        ,0,470,6,0,0,470,6,(972) 429-7949,Walgreens.com/covid19vac
+Walgreens Pharmacy 06663,Pharmacy,,4201 E Renner Rd,Richardson,Collin,4201 E Renner Rd,75082,05/11/2021      ,16:22:52        ,24,550,0,0,225,799,0,(972) 234-0889,Walgreens.com/covid19vac
+Walgreens Pharmacy 04786,Pharmacy,,5049 Preston Rd,Frisco,Collin,5049 Preston Rd,75034,05/11/2021      ,07:40:27        ,0,310,0,0,0,310,0,214-387-9505,https://www.walgreens.com/locator/walgreens-112+bennett+drive-caribou-me-04736/id=18248?o=acs
+Walgreens Pharmacy 04787,Pharmacy,,1226 W Mcdermott Dr,Allen,Collin,1226 W Mcdermott Dr,75013,05/11/2021      ,14:58:03        ,0,300,0,0,135,435,0,,
+Market Street Pharmacy 685,Pharmacy,,4268 Legacy Dr,Frisco,Collin,4268 Legacy Dr,75034,05/10/2021      ,20:23:31        ,234,150,0,0,600,984,0,(214) 705-0362,https://local.pharmacy.marketstreetunited.com/tx/frisco/4268-legacy-dr.html
+Beaker Pharmacy,Pharmacy,,Eldorado Pkwy,Mckinney,collin,7810 Eldorado pkwy ste 200,75070,05/10/2021      ,22:55:37        ,1020,0,1170,100,45,1065,1270,,
+Brookshires Pharmacy 131,Pharmacy,,1325 W White St,Anna,Collin,1325 W White St,75409,05/10/2021      ,21:09:02        ,0,10,0,0,190,200,0,(972) 924-4220,https://www.brookshires.com/covid-19-information
+Syeda Sultana Ahmad Md,Other,,20th St,Plano,Collin,1007 20th St,75074,05/06/2021      ,21:07:52        ,0,0,0,0,90,90,0,,
+LEGENT HOSPITAL FOR SPECIAL SURGERY,Hospital,E,4100 Mapleshade Lane, Plano,Collin,4100 Mapleshade Lane, Plano, TX, 75075,75075,05/11/2021      ,13:56:18        ,0,0,0,129,0,0,129,(972) 265-1050,
+Market Street Pharmacy 563,Pharmacy,,985 W Bethany Dr,Allen,Collin,985 W Bethany Dr,75013,05/07/2021      ,18:31:18        ,96,391,0,0,346,833,0,(972) 908-3840,https://local.pharmacy.marketstreetunited.com/tx/allen/985-w-bethany-dr.html
+Fairview Dermatology,Medical Practice,,331 Town Pl,Mckinney,Collin,331 Town Pl,75069,05/11/2021      ,06:49:01        ,0,40,0,0,0,40,0,(972) 747-0000,https://www.fairviewderm.com/
+Jeffrey A George Md,Medical Practice,,5236 W University Dr.,McKinney,Collin,5236 W University Dr Ste 3200 McKinney 75071,75071,05/10/2021      ,10:39:46        ,0,30,0,0,0,30,0,,
+DRIVEN MD PLLC,Medical Practice,E,5729 Lebanon Rd Ste 144,Frisco,Collin,5729 Lebanon Rd Ste 144,75034,05/07/2021      ,18:35:49        ,45,0,0,415,0,45,415,2144940177,
+Murphy Fire-Rescue,Other,E,206 N. Murphy Rd. ,Murphy,Collin,206 N. Murphy Rd.,75094,05/11/2021      ,13:16:24        ,0,10,0,0,0,10,0,,
+Ann H Snyder, MD PA,Medical Practice,,,McKinney,Collin,4561 Medical Center Drive,75069,05/11/2021      ,13:50:57        ,0,110,0,0,0,110,0,,
+CaringRX Pharmacy,Pharmacy,,Parker Road,Plano,Collin,6020 W. Parker Rd. STE 270,75093,05/11/2021      ,17:12:37        ,0,1660,0,0,0,1660,0,(972) 378-4107,CARINGRXPHARMACY@GMAIL.COM
+BAYLOR SCOTT WHITE MEDICAL CENTER OF PLANO,Vaccine Hub,E,4700 Alliance Blvd,Plano,Collin,4700 Alliance Blvd,75093,05/11/2021      ,07:52:08        ,0,0,0,0,0,0,0,1-844-279-8222,https://www.bswhealth.com/covid-vaccine
+International Travel Solutions - Plano,Medical Practice,,4700 Dexter Dr #300,Plano,Collin,4700 Dexter Dr #300,75093,05/11/2021      ,08:09:29        ,0,500,0,500,0,500,500,(469) 241-1954,http://passporthealthusa.com/
+Frisco Medical Center,Hospital,E,5601 Warren Parkway, Frisco,Collin,5601 Warren Parkway,75034,05/11/2021      ,11:06:52        ,0,0,0,40,0,0,40,(214) 407-5478,http://baylorfrisco.com/?y_source=1_MTM0MTE2ODktNzE1LWxvY2F0aW9uLndlYnNpdGU%3D
